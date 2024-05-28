@@ -10,3 +10,13 @@ Then run python file in terminal.
 
 
 For integrations with BoTorch, make sure to have conda environment.
+
+
+VERY RELEVANT FILES:
+
+sf_centralized.py
+sf_decentralized.py
+collect_hourly_simulated_demand.py
+performance_indicators.py
+
+Already added into SUMO Configuration files due to dependencies.

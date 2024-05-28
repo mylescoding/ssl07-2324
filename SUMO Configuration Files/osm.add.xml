@@ -4,6 +4,8 @@
 -->
 
 <additional xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/additional_file.xsd">
+    <timedEvent type="SaveTLSProgram" source="kuf" dest="kuf_timing.xml"/>
+    <timedEvent type="SaveTLSProgram" source="kbt" dest="kbt_timing.xml"/>    
     <!-- Detectors -->
     <laneAreaDetector id="Bgon_L0_C0" lane="b.gonzales-road_0" pos="1.52" length="8.33" period="1.00" file="NUL"/>
     <laneAreaDetector id="Bgon_L0_C1" lane="b.gonzales-road_0" pos="10.10" length="8.33" period="1.00" file="NUL"/>
