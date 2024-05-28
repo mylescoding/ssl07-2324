@@ -35,3 +35,6 @@ Steps:
 
 
 This time around we'll be working with the main branch lang. Creating branches would be tricky as all of us are learning Git pa lang. To address this, if major major changes are going to be made with the code, duplicate the file and place it in the proper folder in the repository, then push whatever change you need on the file. 
+
+#Change Log
+May 28, 2024; 11:09pm - created a new branch called "ctm". Please commit changes to CTM codes in this branch first and ask another person to check, before committing to the main branch. ~ Myles
