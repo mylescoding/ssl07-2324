@@ -1,28 +1,28 @@
 ## ssl07-2324
-### SmartLight: A Decentralized MPC-based Multi-intersection Traffic Signal Optimization Algorithm
+## SmartLight: A Decentralized MPC-based Multi-intersection Traffic Signal Optimization Algorithm
 
-## SIMULATION GUIDE:
+# SIMULATION GUIDE:
 
 To make simulation run with TraCI, make sure to include TraCI-integrated Python Code in the same directory as the SUMO Configuration files.
 Then run python file in terminal.
 For integrations with BoTorch, make sure to have conda environment.
 
 
-## VERY RELEVANT FILES:
+# VERY RELEVANT FILES:
 
-sf_centralized.py
-sf_decentralized.py
-collect_hourly_simulated_demand.py
-performance_indicators.py
+1. sf_centralized.py
+2. sf_decentralized.py
+3. collect_hourly_simulated_demand.py
+4. performance_indicators.py
 
-# These files are already added into SUMO Configuration files due to dependencies.
+These files are already added into SUMO Configuration files due to dependencies.
 
 
-## GIT GUIDE
+# GIT GUIDE
 
-# An issue with the multiple code revisions ay keeping track of the changes, which is very hard to do kung magssend lang nang magssend ng updated codes.
+An issue with the multiple code revisions ay keeping track of the changes, which is very hard to do kung magssend lang nang magssend ng updated codes.
 
-# I reorganized the repository na so that the changes we make with the codes are reflected din in a single source. 
+The repository is reorganized na so that the changes we make with the codes are reflected din in a single source. 
 
 Steps:
 0. Have Git installed
