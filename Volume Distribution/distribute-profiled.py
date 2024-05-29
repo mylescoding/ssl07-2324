@@ -24,15 +24,15 @@ class Intermediate:
 def createXML_hourly_profiled(dic, idx):
     count = 0
     xml_entries = []
-    #assume ratio between motorcycles to cars is  3:1
-    start_end_times = [('0.0', '3600.0'), ('3600.0', '7200.0'), ('7200.0', '10800.0'), ('10800.0', '14400.0'), ('14400.0', '18000.0'), ('18000.0', '21600.0'), ('21600.0', '25200.0'), ('25200.0', '28800.0'), ('28800.0', '32400.0'), ('32400.0', '36000.0'), ('36000.0', '39600.0'), ('39600.0', '43200.0'), ('43200.0', '46800.0'), ('46800.0', '50400.0')]
+    #assume ratio between motorcycles to cars is  3:2
+    start_end_times = [('0.0', '2400.0'), ('3600.0', '6000.0'), ('7200.0', '9600.0'), ('10800.0', '13200.0'), ('14400.0', '16800.0'), ('18000.0', '20400.0'), ('21600.0', '24000.0'), ('25200.0', '27600.0'), ('28800.0', '31200.0'), ('32400.0', '34800.0'), ('36000.0', '38400.0'), ('39600.0', '42000.0'), ('43200.0', '45600.0'), ('46800.0', '49200.0')]
     
     for key in dic:
         motor_count = int(round(dic[key] * 0.6))
         car_count = int(round(dic[key] * 0.4))
-        xml_entry_motor = '<flow id ="f_' + str(count) +'"' + ' type = "phMotor" begin="'  + str(start_end_times[idx][0]) + '0" route="' + str(key) + '" end="'+ str(start_end_times[idx][1]) + '0" vehsPerHour="'+ str(motor_count) +'"'+' departLane="free" departSpeed="max"'+'/>' 
+        xml_entry_motor = '<flow id ="f_' + str(count) +'"' + ' type = "phMotor" begin="'  + str(start_end_times[idx][0]) + '0" route="' + str(key) + '" end="'+ str(start_end_times[idx][1]) + '0" number="'+ str(motor_count) +'"'+' departLane="free" departSpeed="max"'+'/>' 
         count = count + 1
-        xml_entry_car = '<flow id ="f_' + str(count) +'"' + ' type = "phCar" begin="'  + str(start_end_times[idx][0]) + '0" route="' + str(key) + '" end="'+ str(start_end_times[idx][1]) + '0" vehsPerHour="'+ str(car_count) +'"'+' departLane="free" departSpeed="max"'+'/>' 
+        xml_entry_car = '<flow id ="f_' + str(count) +'"' + ' type = "phCar" begin="'  + str(start_end_times[idx][0]) + '0" route="' + str(key) + '" end="'+ str(start_end_times[idx][1]) + '0" number="'+ str(car_count) +'"'+' departLane="free" departSpeed="max"'+'/>' 
         count = count + 1
         if motor_count != 0:
             xml_entries.append(xml_entry_motor)
@@ -51,15 +51,15 @@ def createXML_hourly_profiled(dic, idx):
 def createXML_wholeday_profiled(dic):
     count = 0
     xml_entries = []
-    #assume ratio between motorcycles to cars is  3:1
-    start_end_times = [('0.0', '3600.0'), ('3600.0', '7200.0'), ('7200.0', '10800.0'), ('10800.0', '14400.0'), ('14400.0', '18000.0'), ('18000.0', '21600.0'), ('21600.0', '25200.0'), ('25200.0', '28800.0'), ('28800.0', '32400.0'), ('32400.0', '36000.0'), ('36000.0', '39600.0'), ('39600.0', '43200.0'), ('43200.0', '46800.0'), ('46800.0', '50400.0')]
+    #assume ratio between motorcycles to cars is  3:2
+    start_end_times = [('0.0', '2400.0'), ('3600.0', '6000.0'), ('7200.0', '9600.0'), ('10800.0', '13200.0'), ('14400.0', '16800.0'), ('18000.0', '20400.0'), ('21600.0', '24000.0'), ('25200.0', '27600.0'), ('28800.0', '31200.0'), ('32400.0', '34800.0'), ('36000.0', '38400.0'), ('39600.0', '42000.0'), ('43200.0', '45600.0'), ('46800.0', '49200.0')]
     for idx in range (14):
         for key in dic:
             motor_count = int(round(dic[key] * 0.6))
             car_count = int(round(dic[key] * 0.4))
-            xml_entry_motor = '<flow id ="f_' + str(count) +'"' + ' type = "phMotor" begin="'  + str(start_end_times[idx][0]) + '0" route="' + str(key) + '" end="'+ str(start_end_times[idx][1]) + '0" vehsPerHour="'+ str(motor_count) +'"/>' 
+            xml_entry_motor = '<flow id ="f_' + str(count) +'"' + ' type = "phMotor" begin="'  + str(start_end_times[idx][0]) + '0" route="' + str(key) + '" end="'+ str(start_end_times[idx][1]) + '0" number="'+ str(motor_count) +'"/>' 
             count = count + 1
-            xml_entry_car = '<flow id ="f_' + str(count) +'"' + ' type = "phCar" begin="'  + str(start_end_times[idx][0]) + '0" route="' + str(key) + '" end="'+ str(start_end_times[idx][1]) + '0" vehsPerHour="'+ str(car_count) +'"/>' 
+            xml_entry_car = '<flow id ="f_' + str(count) +'"' + ' type = "phCar" begin="'  + str(start_end_times[idx][0]) + '0" route="' + str(key) + '" end="'+ str(start_end_times[idx][1]) + '0" number="'+ str(car_count) +'"/>' 
             count = count + 1
             if motor_count != 0:
                 xml_entries.append(xml_entry_motor)
