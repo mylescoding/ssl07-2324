@@ -148,6 +148,7 @@ def Phase_3_kbt():
     Set_Busy(K_Uturn)
     Set_Busy(TDrive_K2S)
     Set_Busy(TDrive_K)
+    #Set_Busy(K2N_TDrive)
 
 def Phase_3_kuf():
     

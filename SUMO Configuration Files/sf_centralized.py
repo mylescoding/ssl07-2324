@@ -469,7 +469,7 @@ def getLaneParams():
     lane_veh_count_dict = {key + "_count": 0 for key in lane_dict}
     
     for lane in lane_list:
-        lane_veh_count = traci.lane.getLastStepVehicleNumber(lane)
+        lane_veh_count = traci.lane.getLastStepHaltingNumber(lane)
         for key, value in lane_dict.items():
             if lane in value:
                 lane_veh_count_dict[str(key + "_count")] += lane_veh_count
