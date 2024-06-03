@@ -188,11 +188,11 @@ route_dict = {}
 route_name_list=[]
 
 
-distribute(0)
-createXML_hourly_profiled(route_dict, 0)
+# distribute(0)
+# createXML_hourly_profiled(route_dict, 0)
 
-#for idx in range(14):
-#    distribute(idx)
-#createXML_wholeday_profiled(route_dict)
+for idx in range(14):
+   distribute(idx)
+createXML_wholeday_profiled(route_dict)
 
 #print(route_dict)
