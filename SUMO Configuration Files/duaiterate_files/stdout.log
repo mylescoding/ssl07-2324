@@ -1,15 +1,15 @@
 > Executing step 0
 >> Running router on osm.rou.xml
->>> Begin time: 2024-06-03 19:45:40.527167
->>> End time: 2024-06-03 19:45:41.375477
->>> Duration: 0:00:00.848310
+>>> Begin time: 2024-06-03 23:35:35.141605
+>>> End time: 2024-06-03 23:35:35.708693
+>>> Duration: 0:00:00.567088
 <<
 >> Running simulation
->>> Begin time: 2024-06-03 19:45:41.375624
->>> End time: 2024-06-03 19:50:44.938604
->>> Duration: 0:05:03.562980
+>>> Begin time: 2024-06-03 23:35:35.708776
+>>> End time: 2024-06-03 23:38:07.769671
+>>> Duration: 0:02:32.060895
 <<
-< Step 0 ended (duration: 0:05:04.411798)
+< Step 0 ended (duration: 0:02:32.630013)
 ------------------
 
-dua-iterate ended (duration: 0:05:04.412501)
+dua-iterate ended (duration: 0:02:32.630944)

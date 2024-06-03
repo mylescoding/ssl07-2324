@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET
 
 # Load and parse the XML file
-tree = ET.parse('yahoo.xml')
+tree = ET.parse('tripinfo_out.xml')
 root = tree.getroot()
 
 def extract_tripinfo(attribute_name):
