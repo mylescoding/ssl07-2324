@@ -5,8 +5,8 @@
 
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
     <!-- Vehicles, persons and containers (sorted by depart) -->
-    <vType id="phCar" minGap="0.1" speedFactor="normc(1,0.1,0.2,2)" vClass="passenger" sigma="0.4" color="0,255,0" latAlignment="0" length="4.425" width="1.73"/>
-    <vType id="phMotor" minGap="0.1" speedFactor="normc(1.00,0.00)" vClass="motorcycle" sigma="0.15" color="0,0,255" latAlignment="left" length="1.82" width="0.675"/>
+    <vType length="4.425" width="1.1"  id="phCar" minGap="0.4" speedFactor="normc(1,0.1,0.2,2)" vClass="passenger" sigma="0.4" color="0,255,0"/>
+    <vType length="1.5" width="0.5" id="phMotor" minGap="0.2" speedFactor="normc(1.00,0.00)" vClass="motorcycle" sigma="0.15" color="0,0,255"/>
 
     <route id="kbt-10_to_kuf-4" edges="thornton-drive-extension-outward thornton-drive-lower-out L2 L3 L4 L5 L6 univ-road-lower-in"/>
     <route id="kbt-10_to_kuf-4a" edges="thornton-drive-extension-outward thornton-drive-lower-out L2 L3 L4 L5 L6 R6 R5 R4"/>
