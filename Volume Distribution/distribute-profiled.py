@@ -20,12 +20,12 @@ class Intermediate:
     def getPossibleSources(self):
         return self.possible_sources
 
-
+count = 0
 def createXML_hourly_profiled(dic, idx):
-    count = 0
+    global count
     xml_entries = []
     #assume ratio between motorcycles to cars is  3:2
-    start_end_times = [('0.0', '2400.0'), ('3600.0', '6000.0'), ('7200.0', '9600.0'), ('10800.0', '13200.0'), ('14400.0', '16800.0'), ('18000.0', '20400.0'), ('21600.0', '24000.0'), ('25200.0', '27600.0'), ('28800.0', '31200.0'), ('32400.0', '34800.0'), ('36000.0', '38400.0'), ('39600.0', '42000.0'), ('43200.0', '45600.0'), ('46800.0', '49200.0')]
+    start_end_times = [('0.0', '3600.0'), ('3600.0', '7200.0'), ('7200.0', '10800.0'), ('10800.0', '14400.0'), ('14400.0', '18000.0'), ('18000.0', '21600.0'), ('21600.0', '25200.0'), ('25200.0', '28800.0'), ('28800.0', '32400.0'), ('32400.0', '36000.0'), ('36000.0', '39600.0'), ('39600.0', '43200.0'), ('43200.0', '46800.0'), ('46800.0', '50400.0')]
     
     for key in dic:
         motor_count = int(round(dic[key] * 0.6))
@@ -53,7 +53,7 @@ def createXML_wholeday_profiled(dic):
     xml_entries = []
     #assume ratio between motorcycles to cars is  3:2
     start_end_times = [('0.0', '2400.0'), ('3600.0', '6000.0'), ('7200.0', '9600.0'), ('10800.0', '13200.0'), ('14400.0', '16800.0'), ('18000.0', '20400.0'), ('21600.0', '24000.0'), ('25200.0', '27600.0'), ('28800.0', '31200.0'), ('32400.0', '34800.0'), ('36000.0', '38400.0'), ('39600.0', '42000.0'), ('43200.0', '45600.0'), ('46800.0', '49200.0')]
-    for idx in range (14):
+    for idx in range (4):
         for key in dic:
             motor_count = int(round(dic[key] * 0.6))
             car_count = int(round(dic[key] * 0.4))
@@ -81,6 +81,7 @@ def distribute(time_slot):
 
     for source_node in sources:
         sum_out_src = 0
+        demand_sum = 0
         if (source_node.getPossibleRoutes() != []):
             for intermediate_node in intermediates:  
                 if (intermediate_node.getIntermediate_Node_Name() in source_node.getPossibleRoutes()):
@@ -90,15 +91,18 @@ def distribute(time_slot):
                     #sum_out_src += intermediate_demand_dict[intermediate_node.getIntermediate_Node_Name()]
                     sum_out_src += intermediate_demand_dict_wholeday[intermediate_node.getIntermediate_Node_Name()][time_slot]
                     #print("sum_out_src is:" + str(sum_out_src))
+            #print("OKAY SLAAAYYYY")
             for route in source_node.getPossibleRoutes():
                 #once we get the some, get ratio
-                ratio = intermediate_demand_dict_wholeday[route][time_slot] / sum_out_src
+                ratio = float(intermediate_demand_dict_wholeday[route][time_slot] / sum_out_src)
+                #print("source is: " + source_node.getSourceName() +" with demand of " + str(source_demand_dict_wholeday[source_node.getSourceName()][time_slot])+ " while route is: " + str(intermediate_demand_dict_wholeday[route][time_slot]))
                 #print("ratio:" + str(ratio))
-                demand = round(source_demand_dict_wholeday[source_node.getSourceName()][time_slot] * ratio)
+                demand = round(float(source_demand_dict_wholeday[source_node.getSourceName()][time_slot] * ratio))
+                demand_sum += demand
                 new_route_name = str(source_node.getSourceName()) + "_to_" + str(route)
                 route_dict[new_route_name] = demand    
                 route_name_list.append(new_route_name)
-                    
+            #print("demand_sum is: " + str(demand_sum) + " actual: " + str(source_demand_dict_wholeday[source_node.getSourceName()][time_slot]))
         elif(source_node.getPossibleRoutes() == []):
             route_dict[source_node.getSourceName()] = source_demand_dict_wholeday[source_node.getSourceName()][time_slot]
             route_name_list.append(source_node.getSourceName())
@@ -191,8 +195,29 @@ route_name_list=[]
 # distribute(0)
 # createXML_hourly_profiled(route_dict, 0)
 
-for idx in range(14):
-   distribute(idx)
-createXML_wholeday_profiled(route_dict)
+def sum_indices(dictionary):
+    # Initialize a list to store sums for each index
+    sums = [0] * 14
+    
+    # Iterate over the dictionary
+    for key, value_list in dictionary.items():
+        # Iterate over the list and sum the values at each index
+        for i in range(14):
+            sums[i] += value_list[i]
+    
+    return sums
 
-#print(route_dict)
+
+
+
+for idx in range(4):
+   distribute(idx)
+   createXML_hourly_profiled(route_dict, idx)
+   #print(route_dict)
+   #print(sum(route_dict.values()))
+
+#createXML_wholeday_profiled(route_dict)
+#print
+#swank = sum_indices(route_dict)
+#print(swank)
+

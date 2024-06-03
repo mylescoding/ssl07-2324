@@ -22,7 +22,7 @@ def extract_summary(attribute_name):
         value = step.get(attribute_name)
         if value is not None:
             values.append(float(value))
-    return sum(values)/50400
+    return sum(values)/14400
     #return sum(values)/50400
 
 
