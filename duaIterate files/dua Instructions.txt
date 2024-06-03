@@ -1,0 +1,21 @@
+Make a folder for 4 files 
+1. costMemory.py
+2. duaIterate.py
+3. osm.net.xml
+4. osm.rou.xml
+
+
+go to your commandline:
+(for windows)
+	>>>>>>>>>>> ctrl+r then enter "cmd"
+
+On commandline
+(for windows)
+go to your folder:
+	cd <folder path>
+then enter this to run duaIterate:
+	python duaIterate.py -n osm.net.xml -r osm.rou.xml -l 1 
+
+-n for the network file
+-r the route file
+-l is for the iteration
