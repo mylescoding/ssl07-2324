@@ -77,7 +77,7 @@ K3_URd = Vertex("K3_URd",0, 0, 14, 7, K3, URd)  # K3 to University Road
 
 Roads = [K_Gonza, K_K2S, K_TDrive, K_Uturn, Gonza_K, Gonza_TDrive, Gonza_K2S,
          TDrive_K, TDrive_Gonza, TDrive_K2S, FDRosa_K2N, FDRosa_URd, FDRosa_K3,
-         K2N_K, K2N_TDrive, K2S_URd, K2N_K2S, K2S_K2N, K2S_K3, K2S_FDRosa, K3_K2N, K3_URd]  # list of the roads
+         K2N_K, K2N_TDrive, K2S_URd, K2N_K2S, K2S_K2N, K2S_K3, K2S_FDRosa, K3_K2N, K3_URd, URd_K3, URd_K2N]  # list of the roads
 
 Entrance_Nodes = [K, Gonza, TDrive, K3, FDRosa, URd]
 Exit_Nodes = [FDRosa, K, K3, URd, TDrive, Gonza]
@@ -283,7 +283,7 @@ def helper_function(phase,diksyonaryo):
                 print(f"Number of cars in", Roads[i].name, ":", Roads[i].car_num)
         if (past_phases[1] == 15 and past_phases[2] == 15 and past_phases[3] == 15):
             return int(160)
-        if (K_K2S.car_num < 12 and K2N_K.car_num < 12 and K2N_TDrive.car_num < 12 and K2S_K3.car_num < 12 and K3_K2N.car_num < 12 and K3_URd.car_num < 12):
+        if (K_K2S.car_num <= 12 and K2N_K.car_num <= 12 and K2N_TDrive.car_num <= 12 and K2S_K3.car_num <= 12 and K3_K2N.car_num <= 12 and K3_URd.car_num <= 12):
             past_phases[0] = x
             return x
         past_phases[0] = optimization_loop(3)
@@ -297,7 +297,7 @@ def helper_function(phase,diksyonaryo):
                 print(f"Number of cars in", Roads[i].name, ":", Roads[i].car_num)
         if (past_phases[0] == 15 and past_phases[2] == 15 and past_phases[3] == 15):
             return int(70)
-        if (Gonza_K.car_num < 12) and (Gonza_K2S.car_num < 12) and (URd_K3.car_num < 12) and (FDRosa_K2N.car_num < 12) and (FDRosa_K3.car_num < 12) and (FDRosa_URd.car_num < 12):
+        if (Gonza_K.car_num <= 12) and (Gonza_K2S.car_num <= 12) and (URd_K3.car_num <= 12) and (FDRosa_K2N.car_num <= 12) and (FDRosa_K3.car_num <= 12) and (FDRosa_URd.car_num <= 12):
             past_phases[1] = x            
             return x
         past_phases[1] = optimization_loop(3)
@@ -310,7 +310,7 @@ def helper_function(phase,diksyonaryo):
                 print(f"Number of cars in", Roads[i].name, ":", Roads[i].car_num)
         if (past_phases[0] == 15 and past_phases[1] == 15 and past_phases[3] == 15):
             return int(75)
-        if (TDrive_K2S.car_num < 12 and TDrive_K.car_num < 12 and URd_K3.car_num < 12 and URd_K2N.car_num < 12):
+        if (TDrive_K2S.car_num <= 12 and TDrive_K.car_num <= 12 and URd_K3.car_num <= 12 and URd_K2N.car_num <= 12):
             past_phases[2] = x
             return x
         past_phases[2] = optimization_loop(3)
@@ -323,7 +323,7 @@ def helper_function(phase,diksyonaryo):
                 print(f"Number of cars in", Roads[i].name, ":", Roads[i].car_num)
         if (past_phases[0] == 15 and past_phases[1] == 15 and past_phases[2] == 15):
             return int(160)
-        if (K_Uturn.car_num < 12 and K_K2S.car_num < 12 and K_TDrive.car_num < 12 and K2S_URd.car_num < 12 and K2S_K2N.car_num < 12 and K2S_K3.car_num < 12):
+        if (K_Uturn.car_num <= 12 and K_K2S.car_num <= 12 and K_TDrive.car_num <= 12 and K2S_URd.car_num <= 12 and K2S_K2N.car_num <= 12 and K2S_K3.car_num <= 12):
             past_phases[3] = x
             return x
         past_phases[3] = optimization_loop(3)
