@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on 2024-06-03 23:45:45 by Eclipse SUMO GUI Version 1.19.0
+<!-- generated on 2024-06-04 21:37:47 by Eclipse SUMO GUI Version 1.19.0
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
 
     <input>
@@ -25,13 +25,13 @@
 -->
 
 <statistics xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/statistic_file.xsd">
-    <performance clockBegin="1717429545.20" clockEnd="1717429767.48" clockDuration="222.28" traciDuration="0.00" realTimeFactor="65.79" vehicleUpdatesPerSecond="26635.19" personUpdatesPerSecond="0.00" begin="0.00" end="14625.00" duration="14625.00"/>
+    <performance clockBegin="1717508267.74" clockEnd="1717509212.70" clockDuration="944.96" traciDuration="182.83" realTimeFactor="23.49" vehicleUpdatesPerSecond="14977.84" personUpdatesPerSecond="0.00" begin="0.00" end="22196.00" duration="22196.00"/>
     <vehicles loaded="44308" inserted="44308" running="0" waiting="0"/>
     <teleports total="0" jam="0" yield="0" wrongLane="0"/>
-    <safety collisions="0" emergencyStops="0" emergencyBraking="8"/>
+    <safety collisions="0" emergencyStops="0" emergencyBraking="10"/>
     <persons loaded="0" running="0" jammed="0"/>
     <personTeleports total="0" abortWait="0" wrongDest="0"/>
-    <vehicleTripStatistics count="44308" routeLength="880.14" speed="8.55" duration="133.62" waitingTime="62.37" timeLoss="77.75" departDelay="0.50" departDelayWaiting="-1.00" totalTravelTime="5920524.00" totalDepartDelay="22258.12"/>
+    <vehicleTripStatistics count="44308" routeLength="879.87" speed="5.64" duration="319.43" waitingTime="217.76" timeLoss="263.57" departDelay="496.96" departDelayWaiting="-1.00" totalTravelTime="14153414.00" totalDepartDelay="22019486.76"/>
     <pedestrianStatistics number="0" routeLength="0.00" duration="0.00" timeLoss="0.00"/>
     <rideStatistics number="0"/>
     <transportStatistics number="0"/>

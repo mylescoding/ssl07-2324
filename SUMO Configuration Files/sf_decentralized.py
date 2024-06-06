@@ -177,8 +177,9 @@ def Unassert():
 
 for_helper_phase = "phase 4 - kuf-green"
 for_helper_dictionary = {'katip_t_nb_0_count': 0, 'katip_t_nb_1_count': 0, 'katip_t_nb_2_count': 0, 'katip_t_nb_3_count': 0, 'katip_t_sb_0_count': 0, 'katip_t_sb_1_count': 0, 'katip_t_sb_2_count': 0, 'katip_t_sb_3_count': 0, 'katip_t_sb_4_count': 0, 'thornton-drive-lower-out_0_count': 0, 'thornton-drive-in_0_count': 0, 'katip_m_u_nb_0_count': 0, 'katip_m_u_nb_1_count': 0, 'katip_m_u_nb_2_count': 0, 'katip_m_u_nb_3_count': 0, 'katip_m_l_nb_0_count': 0, 'katip_m_l_nb_1_count': 0, 'katip_m_l_nb_2_count': 0, 'b.gonzales-road_0_count': 0, 'b.gonzales-road_1_count': 0, 'katip_m_sb_0_count': 0, 'katip_m_sb_1_count': 0, 'katip_m_sb_2_count': 0, 'katip_m_sb_3_count': 0, 'katip_m_sb_4_count': 0, 'univ-road-upper-out_0_count': 0, 'univ-road-upper-in_0_count': 0, 'univ-road-lower-out_0_count': 0, 'univ-road-lower-in_0_count': 0, 'f.dela-rosa-road_1_count': 0, 'f.dela-rosa-road_0_count': 0, 'katip_b_sb_0_count': 0, 'katip_b_sb_1_count': 0, 'katip_b_sb_2_count': 0, 'katip_b_sb_3_count': 0, 'katip_b_sb_4_count': 0, 'katip_b_nb_0_count': 100, 'katip_b_nb_1_count': 100, 'katip_b_nb_2_count': 100}
-
+past_phases = [0,0,0,0,0,0,0,0]
 def helper_function(phase_data,diksyonaryo):
+    global past_phases
     phase = phase_data.partition(" - ")[0]
     intersection_type = phase_data.partition(" - ")[1]
     if intersection_type == "kuf":
@@ -186,18 +187,30 @@ def helper_function(phase_data,diksyonaryo):
     else:
         intersec = 1
     #Mid Katipunan to Top Katipunan
-    K2N_K.car_num = diksyonaryo["katip_t_nb_0_count"]
-    K2N_K.car_num += diksyonaryo["katip_t_nb_1_count"]
-    K2N_K.car_num += diksyonaryo["katip_t_nb_2_count"]
+    K2N_K.car_num  = diksyonaryo["katip_m_u_nb_1_count"]
+    K2N_K.car_num += diksyonaryo["katip_m_u_nb_2_count"]
+    K2N_K.car_num += diksyonaryo["katip_m_u_nb_3_count"]
+    K2N_K.car_num += diksyonaryo["katip_m_l_nb_1_count"]
+    K2N_K.car_num += diksyonaryo["katip_m_l_nb_2_count"]
+    K2N_K.car_num += int(diksyonaryo["katip_m_u_nb_0_count"]/2)
+    K2N_K.car_num += int(diksyonaryo["katip_m_l_nb_0_count"]/2)
     # Mid Katipunan to Thornton
-    K2N_TDrive.car_num += diksyonaryo["katip_t_nb_3_count"]
+    K2N_TDrive.car_num += int(diksyonaryo["katip_m_u_nb_0_count"]/2)
+    K2N_TDrive.car_num += int(diksyonaryo["katip_m_l_nb_0_count"]/2)
+    
+    #IMPROVE: Lane 0 is just being divided to Thornton and Top Katipunan Equally
+    
     #Top Katipunan to Mid Katipunan
     K_K2S.car_num = diksyonaryo["katip_t_sb_0_count"]
     K_K2S.car_num += diksyonaryo["katip_t_sb_1_count"]
     K_K2S.car_num += diksyonaryo["katip_t_sb_2_count"]
     K_K2S.car_num += diksyonaryo["katip_t_sb_3_count"]
     # Top Katipunan U-turn
-    K_Uturn.car_num += diksyonaryo["katip_t_sb_4_count"]
+    K_Uturn.car_num  = int(diksyonaryo["katip_t_sb_4_count"] * 0.75)
+    K_TDrive.car_num = int(diksyonaryo["katip_t_sb_4_count"] * 0.25)
+    
+    #IMPROVE DISTRIBUTION
+    
     # Thornton Drive (Divide divide)
     divide_thornton = int(diksyonaryo["thornton-drive-lower-out_0_count"] / 2)
     mod = diksyonaryo["thornton-drive-lower-out_0_count"] % 2
@@ -208,39 +221,29 @@ def helper_function(phase_data,diksyonaryo):
         TDrive_K.car_num += mod
     else:
         TDrive_K2S.car_num  += mod
-    #From Mid Katipunan to Thornton Drive
-    K2N_TDrive.car_num += diksyonaryo["thornton-drive-in_0_count"]
-    K2N_TDrive.car_num += diksyonaryo["katip_m_u_nb_0_count"]
-    #From Mid Katipunan Upper to Top Katipunan  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-    K2N_TDrive.car_num += diksyonaryo["katip_m_u_nb_1_count"]
-    K2N_TDrive.car_num += diksyonaryo["katip_m_u_nb_2_count"]
-    K2N_TDrive.car_num += diksyonaryo["katip_m_u_nb_3_count"]
-    # From Mid Katipunan Lower to Top Katipunan $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-    K2N_TDrive.car_num += diksyonaryo["katip_m_l_nb_0_count"]
-    K2N_TDrive.car_num += diksyonaryo["katip_m_l_nb_1_count"]
-    K2N_TDrive.car_num += diksyonaryo["katip_m_l_nb_2_count"]
+
     #B.Gonzales to Mid Katipunan
-    Gonza_K2S.car_num +=diksyonaryo["b.gonzales-road_0_count"]
+    Gonza_K2S.car_num = diksyonaryo["b.gonzales-road_0_count"]
 ####B. Gonzales Divide2x
     divide_gonza = int(diksyonaryo["b.gonzales-road_1_count"] / 2)
     mod = diksyonaryo["b.gonzales-road_1_count"] % 2
     TDrive_K.car_num = divide_gonza
     TDrive_K2S.car_num = divide_gonza
     random_number = random.randint(1, 7)
-    if random_number != 1:
+    if random_number == 1:
         # B.Gonzales to Top Katipunan
         Gonza_K2S.car_num += mod
     else:
         # B.Gonzales to Thornton Drive
         Gonza_TDrive.car_num += mod
     # From Mid Katipunan to Bottom Katipunan
-    K2S_K3.car_num += diksyonaryo["katip_m_sb_0_count"]
+    K2S_K3.car_num  = diksyonaryo["katip_m_sb_0_count"]
     K2S_K3.car_num += diksyonaryo["katip_m_sb_1_count"]
     K2S_K3.car_num += diksyonaryo["katip_m_sb_2_count"]
     # From Mid Katipunan to University Drive
-    K2S_URd.car_num +=diksyonaryo["katip_m_sb_3_count"]
+    K2S_URd.car_num = diksyonaryo["katip_m_sb_3_count"]
     # From Mid Katipunan U-turn
-    K2S_K2N.car_num+= diksyonaryo["katip_m_sb_4_count"]#
+    K2S_K2N.car_num = diksyonaryo["katip_m_sb_4_count"]#
 ########University Road Upper Out Divide2x
     divide_urduo = int(diksyonaryo["univ-road-upper-out_0_count"] / 2)
     mod = diksyonaryo["univ-road-upper-out_0_count"] % 2
@@ -254,14 +257,14 @@ def helper_function(phase_data,diksyonaryo):
         # University Road Upper Out to Bottom Katipunan
         URd_K3.car_num  += mod
     # University Road Lower Out
-    URd_K3.car_num= diksyonaryo["univ-road-lower-out_0_count"]
+    URd_K3.car_num += diksyonaryo["univ-road-lower-out_0_count"]
     # F.delaRosa to Mid Katip
-    FDRosa_K2N.car_num += diksyonaryo["f.dela-rosa-road_1_count"]
+    FDRosa_K2N.car_num = diksyonaryo["f.dela-rosa-road_1_count"]
 ######## F.delaRosa Divide2x
     divide_frosa = int(diksyonaryo["f.dela-rosa-road_0_count"] / 2)
     mod = diksyonaryo["f.dela-rosa-road_0_count"] % 2
-    FDRosa_URd.car_num += divide_frosa
-    FDRosa_K3.car_num += divide_frosa
+    FDRosa_URd.car_num = divide_frosa
+    FDRosa_K3.car_num = divide_frosa
     random_number = random.randint(1, 7)
     if random_number == 1:
         # F.delaRosa to University Road
@@ -273,13 +276,12 @@ def helper_function(phase_data,diksyonaryo):
     #'katip_b_sb_0_count': 4, 'katip_b_sb_1_count': 3, 'katip_b_sb_2_count': 7, 'katip_b_sb_3_count': 0, 'katip_b_sb_4_count': 0,
 
     # Bottom Katipunan to Mid Katipunan
-    K3_K2N.car_num += diksyonaryo["katip_b_nb_1_count"]
+    K3_K2N.car_num = diksyonaryo["katip_b_nb_1_count"]
     K3_K2N.car_num += diksyonaryo["katip_b_nb_2_count"]
+    K3_K2N.car_num += int(diksyonaryo["katip_b_nb_0_count"] * 0.7)
     # Bottom Katipunan to Urd
-    K3_URd.car_num += diksyonaryo["katip_b_nb_0_count"]
-
+    K3_URd.car_num = int(diksyonaryo["katip_b_nb_0_count"] * 0.3)
     Unassert()  # This happens only once
-
     x = int(15) #This is the minimum green time
     Save_Original_State()
 
@@ -290,15 +292,26 @@ def helper_function(phase_data,diksyonaryo):
             for i in range(len(Roads)):
                 if Roads[i].busy == 1: 
                     print(f"Number of cars in", Roads[i].name, ":", Roads[i].car_num)
+            if (K_K2S.car_num < 12 and K2N_K.car_num < 12 and K2N_TDrive.car_num < 12 and intersec == 0) or (intersec != 0 and K2S_K3.car_num < 12 and K3_K2N.car_num < 12 and K3_URd.car_num < 12):
+                past_phases[0] = x
+                return x
+            elif (past_phases[2] == 15 and past_phases[4] == 15 and past_phases[6] == 15):
+                return int(160)
+            past_phases[0] = optimization_loop(3)
+            return past_phases[0]
         else:    
             Phase_1_kbt()
             print("THIS IS P1 KBT")
             for i in range(len(Roads)):
                 if Roads[i].busy == 1: 
                     print(f"Number of cars in", Roads[i].name, ":", Roads[i].car_num)
-
-        if (K_K2S.car_num < 12 and K2N_K.car_num < 12 and K2N_TDrive.car_num < 12 and intersec == 0) or (intersec != 0 and K2S_K3.car_num < 12 and K3_K2N.car_num < 12 and K3_URd.car_num < 12):
-            return x
+            if (K_K2S.car_num < 12 and K2N_K.car_num < 12 and K2N_TDrive.car_num < 12 and intersec == 0) or (intersec != 0 and K2S_K3.car_num < 12 and K3_K2N.car_num < 12 and K3_URd.car_num < 12):
+                past_phases[1] = x
+                return x
+            elif (past_phases[3] == 15 and past_phases[5] == 15 and past_phases[7] == 15):
+                return int(160)
+            past_phases[1] = optimization_loop(3)
+            return past_phases[1]
     elif phase =="phase 2":
         if intersec == 0:
             Phase_2_kuf()
@@ -306,15 +319,26 @@ def helper_function(phase_data,diksyonaryo):
             for i in range(len(Roads)):
                 if Roads[i].busy == 1: 
                     print(f"Number of cars in", Roads[i].name, ":", Roads[i].car_num)
+            if (URd_K3.car_num < 12 and FDRosa_K2N.car_num < 12 and FDRosa_K3.car_num < 12 and FDRosa_URd.car_num<12 and intersec == 0) or (intersec != 0 and Gonza_K.car_num < 12 and Gonza_K2S.car_num < 12):
+                past_phases[2] = x
+                return x
+            elif (past_phases[0] == 15 and past_phases[4] == 15 and past_phases[6] == 15):
+                return int(75)
+            past_phases[2] = optimization_loop(3)
+            return past_phases[2]
         else: 
             Phase_2_kbt()
             print(f"THIS IS P2 KBT")
             for i in range(len(Roads)):
                 if Roads[i].busy == 1: 
                     print(f"Number of cars in", Roads[i].name, ":", Roads[i].car_num)
-
-        if ((Gonza_K.car_num < 12) and (Gonza_K2S.car_num < 12) and intersec != 0) or ((URd_K3.car_num < 12) and (FDRosa_K2N.car_num < 12) and (FDRosa_K3.car_num < 12) and (FDRosa_URd.car_num < 12) and intersec != 0):
-            return x
+            if (URd_K3.car_num < 12 and FDRosa_K2N.car_num < 12 and FDRosa_K3.car_num < 12 and FDRosa_URd.car_num<12 and intersec == 0) or (intersec != 0 and Gonza_K.car_num < 12 and Gonza_K2S.car_num < 12):
+                past_phases[3] = x
+                return x
+            elif (past_phases[1] == 15 and past_phases[5] == 15 and past_phases[7] == 15):
+                return int(75)
+            past_phases[3] = optimization_loop(3)
+            return past_phases[3]
     elif phase == "phase 3":
         if intersec == 0:
             Phase_3_kuf()
@@ -322,16 +346,26 @@ def helper_function(phase_data,diksyonaryo):
             for i in range(len(Roads)):
                 if Roads[i].busy == 1: 
                     print(f"Number of cars in", Roads[i].name, ":", Roads[i].car_num)
-
+            if (URd_K3.car_num < 12 and URd_K2N.car_num < 12 and intersec == 0) or (intersec != 0 and K_Uturn.car_num < 12 and TDrive_K2S.car_num < 12 and TDrive_K.car_num < 12):
+                past_phases[4] = x
+                return x
+            elif (past_phases[0] == 15 and past_phases[2] == 15 and past_phases[6] == 15):
+                return int(70)
+            past_phases[4] = optimization_loop(3)
+            return past_phases[4]
         else: 
             Phase_3_kbt()
             print(f"THIS IS P3 KBT")
             for i in range(len(Roads)):
                 if Roads[i].busy == 1: 
                     print(f"Number of cars in", Roads[i].name, ":", Roads[i].car_num)
-
-        if (K_Uturn.car_num < 12 and TDrive_K2S.car_num < 12 and TDrive_K.car_num < 12 and intersec == 0) or (URd_K3.car_num < 12 and URd_K2N.car_num < 12 and intersec != 0):
-            return x
+            if (URd_K3.car_num < 12 and URd_K2N.car_num < 12 and intersec == 0) or (intersec != 0 and K_Uturn.car_num < 12 and TDrive_K2S.car_num < 12 and TDrive_K.car_num < 12):
+                past_phases[5] = x
+                return x
+            elif (past_phases[1] == 15 and past_phases[3] == 15 and past_phases[7] == 15):
+                return int(70)
+            past_phases[5] = optimization_loop(3)
+            return past_phases[5]
     elif phase == "phase 4":
         if intersec == 0:
             Phase_4_kuf()
@@ -339,17 +373,26 @@ def helper_function(phase_data,diksyonaryo):
             for i in range(len(Roads)):
                 if Roads[i].busy == 1: 
                     print(f"Number of cars in", Roads[i].name, ":", Roads[i].car_num)
-
+            if (K2S_URd.car_num < 12 and K2S_K2N.car_num < 12 and K_TDrive.car_num < 12 and intersec == 0) or (intersec != 0 and K_Uturn.car_num < 12 and K_K2S.car_num < 12 and K_TDrive.car_num < 12):
+                past_phases[6] = x
+                return x
+            elif (past_phases[0] == 15 and past_phases[2] == 15 and past_phases[4] == 15):
+                return int(80)
+            past_phases[6] = optimization_loop(3)
+            return past_phases[6]
         else: 
             Phase_4_kbt()
             print(f"THIS IS P4 KBT")
             for i in range(len(Roads)):
                 if Roads[i].busy == 1: 
                     print(f"Number of cars in", Roads[i].name, ":", Roads[i].car_num)
-
-        if (K_Uturn.car_num < 12 and K_K2S.car_num < 12 and K_TDrive.car_num < 12 and intersec == 0) or (intersec != 0 and K2S_URd.car_num < 12 and K2S_K2N.car_num < 12 and K2S_K3.car_num < 12):
-            return x
-    return optimization_loop(3) 
+            if (K2S_URd.car_num < 12 and K2S_K2N.car_num < 12 and K_TDrive.car_num < 12 and intersec == 0) or (intersec != 0 and K_Uturn.car_num < 12 and K_K2S.car_num < 12 and K_TDrive.car_num < 12):
+                past_phases[7] = x
+                return x
+            elif (past_phases[1] == 15 and past_phases[3] == 15 and past_phases[5] == 15):
+                return int(80)
+            past_phases[7] = optimization_loop(3)
+            return past_phases[7]
 
 car_num_list = []
 
@@ -511,7 +554,7 @@ def getLaneParams():
     lane_veh_count_dict = {key + "_count": 0 for key in lane_dict}
     
     for lane in lane_list:
-        lane_veh_count = traci.lane.getLastStepVehicleNumber(lane)
+        lane_veh_count = traci.lane.getLastStepHaltingNumber(lane)
         for key, value in lane_dict.items():
             if lane in value:
                 lane_veh_count_dict[str(key + "_count")] += lane_veh_count

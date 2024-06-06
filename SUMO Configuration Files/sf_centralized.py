@@ -77,7 +77,7 @@ K3_URd = Vertex("K3_URd",0, 0, 14, 7, K3, URd)  # K3 to University Road
 
 Roads = [K_Gonza, K_K2S, K_TDrive, K_Uturn, Gonza_K, Gonza_TDrive, Gonza_K2S,
          TDrive_K, TDrive_Gonza, TDrive_K2S, FDRosa_K2N, FDRosa_URd, FDRosa_K3,
-         K2N_K, K2N_TDrive, K2S_URd, K2N_K2S, K2S_K2N, K2S_K3, K2S_FDRosa, K3_K2N, K3_URd]  # list of the roads
+         K2N_K, K2N_TDrive, K2S_URd, K2N_K2S, K2S_K2N, K2S_K3, K2S_FDRosa, K3_K2N, K3_URd, URd_K3, URd_K2N]  # list of the roads
 
 Entrance_Nodes = [K, Gonza, TDrive, K3, FDRosa, URd]
 Exit_Nodes = [FDRosa, K, K3, URd, TDrive, Gonza]
@@ -145,6 +145,7 @@ def Phase_3():
     Set_Busy(K_Uturn)
     Set_Busy(TDrive_K2S)
     Set_Busy(TDrive_K)
+    #Set_Busy(K2N_TDrive)
 
     # Katip-Univ-F.dela
     Set_Busy(URd_K3)
@@ -172,22 +173,35 @@ def Unassert():
 for_helper_phase = "phase 4 - kuf-green"
 for_helper_dictionary = {'katip_t_nb_0_count': 0, 'katip_t_nb_1_count': 0, 'katip_t_nb_2_count': 0, 'katip_t_nb_3_count': 0, 'katip_t_sb_0_count': 0, 'katip_t_sb_1_count': 0, 'katip_t_sb_2_count': 0, 'katip_t_sb_3_count': 0, 'katip_t_sb_4_count': 0, 'thornton-drive-lower-out_0_count': 0, 'thornton-drive-in_0_count': 0, 'katip_m_u_nb_0_count': 0, 'katip_m_u_nb_1_count': 0, 'katip_m_u_nb_2_count': 0, 'katip_m_u_nb_3_count': 0, 'katip_m_l_nb_0_count': 0, 'katip_m_l_nb_1_count': 0, 'katip_m_l_nb_2_count': 0, 'b.gonzales-road_0_count': 0, 'b.gonzales-road_1_count': 0, 'katip_m_sb_0_count': 0, 'katip_m_sb_1_count': 0, 'katip_m_sb_2_count': 0, 'katip_m_sb_3_count': 0, 'katip_m_sb_4_count': 0, 'univ-road-upper-out_0_count': 0, 'univ-road-upper-in_0_count': 0, 'univ-road-lower-out_0_count': 0, 'univ-road-lower-in_0_count': 0, 'f.dela-rosa-road_1_count': 0, 'f.dela-rosa-road_0_count': 0, 'katip_b_sb_0_count': 0, 'katip_b_sb_1_count': 0, 'katip_b_sb_2_count': 0, 'katip_b_sb_3_count': 0, 'katip_b_sb_4_count': 0, 'katip_b_nb_0_count': 100, 'katip_b_nb_1_count': 100, 'katip_b_nb_2_count': 100}
 
-
+past_phases = [0,0,0,0]
 def helper_function(phase,diksyonaryo):
+    global past_phases
     phase = phase.partition(" - ")[0]
     #Mid Katipunan to Top Katipunan
-    K2N_K.car_num = diksyonaryo["katip_t_nb_0_count"]
-    K2N_K.car_num += diksyonaryo["katip_t_nb_1_count"]
-    K2N_K.car_num += diksyonaryo["katip_t_nb_2_count"]
+    K2N_K.car_num  = diksyonaryo["katip_m_u_nb_1_count"]
+    K2N_K.car_num += diksyonaryo["katip_m_u_nb_2_count"]
+    K2N_K.car_num += diksyonaryo["katip_m_u_nb_3_count"]
+    K2N_K.car_num += diksyonaryo["katip_m_l_nb_1_count"]
+    K2N_K.car_num += diksyonaryo["katip_m_l_nb_2_count"]
+    K2N_K.car_num += int(diksyonaryo["katip_m_u_nb_0_count"]/2)
+    K2N_K.car_num += int(diksyonaryo["katip_m_l_nb_0_count"]/2)
     # Mid Katipunan to Thornton
-    K2N_TDrive.car_num += diksyonaryo["katip_t_nb_3_count"]
+    K2N_TDrive.car_num += int(diksyonaryo["katip_m_u_nb_0_count"]/2)
+    K2N_TDrive.car_num += int(diksyonaryo["katip_m_l_nb_0_count"]/2)
+    
+    #IMPROVE: Lane 0 is just being divided to Thornton and Top Katipunan Equally
+    
     #Top Katipunan to Mid Katipunan
     K_K2S.car_num = diksyonaryo["katip_t_sb_0_count"]
     K_K2S.car_num += diksyonaryo["katip_t_sb_1_count"]
     K_K2S.car_num += diksyonaryo["katip_t_sb_2_count"]
     K_K2S.car_num += diksyonaryo["katip_t_sb_3_count"]
     # Top Katipunan U-turn
-    K_Uturn.car_num += diksyonaryo["katip_t_sb_4_count"]
+    K_Uturn.car_num  = int(diksyonaryo["katip_t_sb_4_count"] * 0.75)
+    K_TDrive.car_num = int(diksyonaryo["katip_t_sb_4_count"] * 0.25)
+    
+    #IMPROVE DISTRIBUTION
+    
     # Thornton Drive (Divide divide)
     divide_thornton = int(diksyonaryo["thornton-drive-lower-out_0_count"] / 2)
     mod = diksyonaryo["thornton-drive-lower-out_0_count"] % 2
@@ -198,19 +212,9 @@ def helper_function(phase,diksyonaryo):
         TDrive_K.car_num += mod
     else:
         TDrive_K2S.car_num  += mod
-    #From Mid Katipunan to Thornton Drive
-    K2N_TDrive.car_num += diksyonaryo["thornton-drive-in_0_count"]
-    K2N_TDrive.car_num += diksyonaryo["katip_m_u_nb_0_count"]
-    #From Mid Katipunan Upper to Top Katipunan  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-    K2N_TDrive.car_num += diksyonaryo["katip_m_u_nb_1_count"]
-    K2N_TDrive.car_num += diksyonaryo["katip_m_u_nb_2_count"]
-    K2N_TDrive.car_num += diksyonaryo["katip_m_u_nb_3_count"]
-    # From Mid Katipunan Lower to Top Katipunan $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-    K2N_TDrive.car_num += diksyonaryo["katip_m_l_nb_0_count"]
-    K2N_TDrive.car_num += diksyonaryo["katip_m_l_nb_1_count"]
-    K2N_TDrive.car_num += diksyonaryo["katip_m_l_nb_2_count"]
+
     #B.Gonzales to Mid Katipunan
-    Gonza_K2S.car_num +=diksyonaryo["b.gonzales-road_0_count"]
+    Gonza_K2S.car_num = diksyonaryo["b.gonzales-road_0_count"]
 ####B. Gonzales Divide2x
     divide_gonza = int(diksyonaryo["b.gonzales-road_1_count"] / 2)
     mod = diksyonaryo["b.gonzales-road_1_count"] % 2
@@ -224,13 +228,13 @@ def helper_function(phase,diksyonaryo):
         # B.Gonzales to Thornton Drive
         Gonza_TDrive.car_num += mod
     # From Mid Katipunan to Bottom Katipunan
-    K2S_K3.car_num += diksyonaryo["katip_m_sb_0_count"]
+    K2S_K3.car_num  = diksyonaryo["katip_m_sb_0_count"]
     K2S_K3.car_num += diksyonaryo["katip_m_sb_1_count"]
     K2S_K3.car_num += diksyonaryo["katip_m_sb_2_count"]
     # From Mid Katipunan to University Drive
-    K2S_URd.car_num +=diksyonaryo["katip_m_sb_3_count"]
+    K2S_URd.car_num = diksyonaryo["katip_m_sb_3_count"]
     # From Mid Katipunan U-turn
-    K2S_K2N.car_num+= diksyonaryo["katip_m_sb_4_count"]#
+    K2S_K2N.car_num = diksyonaryo["katip_m_sb_4_count"]#
 ########University Road Upper Out Divide2x
     divide_urduo = int(diksyonaryo["univ-road-upper-out_0_count"] / 2)
     mod = diksyonaryo["univ-road-upper-out_0_count"] % 2
@@ -244,14 +248,14 @@ def helper_function(phase,diksyonaryo):
         # University Road Upper Out to Bottom Katipunan
         URd_K3.car_num  += mod
     # University Road Lower Out
-    URd_K3.car_num= diksyonaryo["univ-road-lower-out_0_count"]
+    URd_K3.car_num += diksyonaryo["univ-road-lower-out_0_count"]
     # F.delaRosa to Mid Katip
-    FDRosa_K2N.car_num += diksyonaryo["f.dela-rosa-road_1_count"]
+    FDRosa_K2N.car_num = diksyonaryo["f.dela-rosa-road_1_count"]
 ######## F.delaRosa Divide2x
     divide_frosa = int(diksyonaryo["f.dela-rosa-road_0_count"] / 2)
     mod = diksyonaryo["f.dela-rosa-road_0_count"] % 2
-    FDRosa_URd.car_num += divide_frosa
-    FDRosa_K3.car_num += divide_frosa
+    FDRosa_URd.car_num = divide_frosa
+    FDRosa_K3.car_num = divide_frosa
     random_number = random.randint(1, 7)
     if random_number == 1:
         # F.delaRosa to University Road
@@ -263,10 +267,11 @@ def helper_function(phase,diksyonaryo):
     #'katip_b_sb_0_count': 4, 'katip_b_sb_1_count': 3, 'katip_b_sb_2_count': 7, 'katip_b_sb_3_count': 0, 'katip_b_sb_4_count': 0,
 
     # Bottom Katipunan to Mid Katipunan
-    K3_K2N.car_num += diksyonaryo["katip_b_nb_1_count"]
+    K3_K2N.car_num = diksyonaryo["katip_b_nb_1_count"]
     K3_K2N.car_num += diksyonaryo["katip_b_nb_2_count"]
+    K3_K2N.car_num += int(diksyonaryo["katip_b_nb_0_count"] * 0.7)
     # Bottom Katipunan to Urd
-    K3_URd.car_num += diksyonaryo["katip_b_nb_0_count"]
+    K3_URd.car_num = int(diksyonaryo["katip_b_nb_0_count"] * 0.3)
     Unassert()  # This happens only once
     x = int(15) #This is the minimum green time
     Save_Original_State()
@@ -276,34 +281,53 @@ def helper_function(phase,diksyonaryo):
         for i in range(len(Roads)):
             if Roads[i].busy == 1: 
                 print(f"Number of cars in", Roads[i].name, ":", Roads[i].car_num)
-        if (K_K2S.car_num < 12 and K2N_K.car_num < 12 and K2N_TDrive.car_num < 12 and K2S_K3.car_num < 12 and K3_K2N.car_num < 12 and K3_URd.car_num < 12):
+        if (past_phases[1] == 15 and past_phases[2] == 15 and past_phases[3] == 15):
+            return int(160)
+        if (K_K2S.car_num <= 12 and K2N_K.car_num <= 12 and K2N_TDrive.car_num <= 12 and K2S_K3.car_num <= 12 and K3_K2N.car_num <= 12 and K3_URd.car_num <= 12):
+            past_phases[0] = x
             return x
+        past_phases[0] = optimization_loop(3)
+        return past_phases[0]
+        past_phase[0] = optimization_loop(3)
     elif phase =="phase 2":
         Phase_2()
         print("THIS IS P2")
         for i in range(len(Roads)):
             if Roads[i].busy == 1: 
                 print(f"Number of cars in", Roads[i].name, ":", Roads[i].car_num)
-        if (Gonza_K.car_num < 12) and (Gonza_K2S.car_num < 12) and (URd_K3.car_num < 12) and (FDRosa_K2N.car_num < 12) and (FDRosa_K3.car_num < 12) and (FDRosa_URd.car_num < 12):
+        if (past_phases[0] == 15 and past_phases[2] == 15 and past_phases[3] == 15):
+            return int(70)
+        if (Gonza_K.car_num <= 12) and (Gonza_K2S.car_num <= 12) and (URd_K3.car_num <= 12) and (FDRosa_K2N.car_num <= 12) and (FDRosa_K3.car_num <= 12) and (FDRosa_URd.car_num <= 12):
+            past_phases[1] = x            
             return x
+        past_phases[1] = optimization_loop(3)
+        return past_phases[1]
     elif phase == "phase 3":
         Phase_3()
         print("THIS IS P3")
         for i in range(len(Roads)):
             if Roads[i].busy == 1: 
                 print(f"Number of cars in", Roads[i].name, ":", Roads[i].car_num)
-        if (K_Uturn.car_num < 12 and TDrive_K2S.car_num < 12 and TDrive_K.car_num < 12 and URd_K3.car_num < 12 and URd_K2N.car_num < 12):
+        if (past_phases[0] == 15 and past_phases[1] == 15 and past_phases[3] == 15):
+            return int(75)
+        if (TDrive_K2S.car_num <= 12 and TDrive_K.car_num <= 12 and URd_K3.car_num <= 12 and URd_K2N.car_num <= 12):
+            past_phases[2] = x
             return x
+        past_phases[2] = optimization_loop(3)
+        return past_phases[2]
     elif phase == "phase 4":
         Phase_4()
         print("THIS IS P4")
         for i in range(len(Roads)):
             if Roads[i].busy == 1: 
                 print(f"Number of cars in", Roads[i].name, ":", Roads[i].car_num)
-        if (K_Uturn.car_num < 12 and K_K2S.car_num < 12 and K_TDrive.car_num < 12 and K2S_URd.car_num < 12 and K2S_K2N.car_num < 12 and K2S_K3.car_num < 12):
+        if (past_phases[0] == 15 and past_phases[1] == 15 and past_phases[2] == 15):
+            return int(160)
+        if (K_Uturn.car_num <= 12 and K_K2S.car_num <= 12 and K_TDrive.car_num <= 12 and K2S_URd.car_num <= 12 and K2S_K2N.car_num <= 12 and K2S_K3.car_num <= 12):
+            past_phases[3] = x
             return x
-    return optimization_loop(3) 
-
+        past_phases[3] = optimization_loop(3)
+        return past_phases[3]
 car_num_list = []
 
 def Save_Original_State():
