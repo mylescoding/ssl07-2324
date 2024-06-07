@@ -179,6 +179,8 @@ def run():
     step = 0
     ctr_kbt = 0
     ctr_kuf = 0
+    min_kbt = 0
+    min_kuf = 0
     while traci.simulation.getMinExpectedNumber() > 0:
         traci.simulationStep()  # move one second in simulation
         if (step % 5 == 0):
@@ -280,13 +282,21 @@ def run():
             if next_phase_kbt == 12:
                 next_phase_kbt = 0
 
-            if phase_x_kbt<phase_y_kbt and current_phase_kbt in [0,3,6,9]:
+            if min_kbt < 3 and phase_x_kbt != 0:
+                min_kbt += 1
+            elif phase_x_kbt == 0:
                 traci.trafficlight.setPhase("kbt", next_phase_kbt)
-            elif current_phase_kbt in [0,3,6,9] and time_remaining_kbt <= 5 and ctr_kbt % 4 != 0:
-                traci.trafficlight.setPhaseDuration ("kbt", 10)
-                ctr_kbt += 1
-            elif ctr_kbt % 4 == 0 and ctr_kbt != 0:
-                traci.trafficlight.setPhase("kbt", next_phase_kbt)
+                min_kbt = 0
+            else:
+                if phase_x_kbt<phase_y_kbt and current_phase_kbt in [0,3,6,9]:
+                    traci.trafficlight.setPhase("kbt", next_phase_kbt)
+                    min_kbt = 0
+                elif current_phase_kbt in [0,3,6,9] and time_remaining_kbt <= 5 and ctr_kbt % 4 != 0:
+                    traci.trafficlight.setPhaseDuration ("kbt", 10)
+                    ctr_kbt += 1
+                elif ctr_kbt % 4 == 0 and ctr_kbt != 0:
+                    traci.trafficlight.setPhase("kbt", next_phase_kbt)
+                    min_kbt = 0
                 
             # KUF
             if current_phase_kuf == 0:
@@ -305,13 +315,21 @@ def run():
             if next_phase_kuf == 12:
                 next_phase_kuf = 0
 
-            if phase_x_kuf<phase_y_kuf and current_phase_kuf in [0,3,6,9]:
+            if min_kuf < 3 and phase_x_kuf != 0:
+                min_kuf += 1
+            elif phase_x_kuf == 0:
                 traci.trafficlight.setPhase("kuf", next_phase_kuf)
-            elif current_phase_kuf in [0,3,6,9] and time_remaining_kuf <= 5 and ctr_kuf % 4 != 0:
-                traci.trafficlight.setPhaseDuration ("kuf", 10)
-                ctr_kuf += 1
-            elif ctr_kuf % 4 == 0 and ctr_kuf != 0:
-                traci.trafficlight.setPhase("kuf", next_phase_kuf)
+                min_kuf = 0
+            else:
+                if phase_x_kuf<phase_y_kuf and current_phase_kuf in [0,3,6,9]:
+                    traci.trafficlight.setPhase("kuf", next_phase_kuf)
+                    min_kuf = 0
+                elif current_phase_kuf in [0,3,6,9] and time_remaining_kuf <= 5 and ctr_kuf % 4 != 0:
+                    traci.trafficlight.setPhaseDuration ("kuf", 10)
+                    ctr_kuf += 1
+                elif ctr_kuf % 4 == 0 and ctr_kuf != 0:
+                    traci.trafficlight.setPhase("kuf", next_phase_kuf)
+                    min_kuf = 0
                 
         step += 1
 
