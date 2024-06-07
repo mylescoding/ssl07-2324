@@ -632,18 +632,18 @@
         <phase duration="4"  state="rrrrrrrrrrrrrrrrrrrrrr" name="phase 4 - kbt - red"/>
     </tlLogic>
     <tlLogic id="kuf" type="static" programID="0" offset="0">
-        <phase duration="120" state="gggggrrrrrrrrgggggrrrrr" name="phase 1 - kuf-green"/>
-        <phase duration="3"  state="yyyyyrrrrrrrryyyyyrrrrr" name="phase 1 - kuf-yellow"/>
-        <phase duration="4"  state="rrrrrrrrrrrrrrrrrrrrrrr" name="phase 1 - kuf-red"/>
-        <phase duration="40" state="rrrrrrrrrrrggrrrrrggggg" name="phase 2 - kuf-green"/>
-        <phase duration="3"  state="rrrrrrrrrrryyrrrrryyyyy" name="phase 2 - kuf-yellow"/>
-        <phase duration="4"  state="rrrrrrrrrrrrrrrrrrrrrrr" name="phase 2 - kuf-red"/>
-        <phase duration="42" state="rrrrrrrrgggrrrrrrrrrrrr" name="phase 3 - kuf-green"/>
-        <phase duration="3"  state="rrrrrrrryyyrrrrrrrrrrrr" name="phase 3 - kuf-yellow"/>
-        <phase duration="4"  state="rrrrrrrrrrrrrrrrrrrrrrr" name="phase 3 - kuf-red"/>
-        <phase duration="26" state="ggggggggrrrrrrrrrrrrrrr" name="phase 4 - kuf-green"/>
-        <phase duration="3"  state="yyyyyyyyrrrrrrrrrrrrrrr" name="phase 4 - kuf-yellow"/>
-        <phase duration="4"  state="rrrrrrrrrrrrrrrrrrrrrrr" name="phase 4 - kuf-red"/>
+        <phase duration="120" state="gggggrrrrrrrrgggggrrrrr" name="phase 1 - kuf - green"/>
+        <phase duration="3"  state="yyyyyrrrrrrrryyyyyrrrrr" name="phase 1 - kuf - yellow"/>
+        <phase duration="4"  state="rrrrrrrrrrrrrrrrrrrrrrr" name="phase 1 - kuf - red"/>
+        <phase duration="40" state="rrrrrrrrrrrggrrrrrggggg" name="phase 2 - kuf - green"/>
+        <phase duration="3"  state="rrrrrrrrrrryyrrrrryyyyy" name="phase 2 - kuf - yellow"/>
+        <phase duration="4"  state="rrrrrrrrrrrrrrrrrrrrrrr" name="phase 2 - kuf - red"/>
+        <phase duration="42" state="rrrrrrrrgggrrrrrrrrrrrr" name="phase 3 - kuf - green"/>
+        <phase duration="3"  state="rrrrrrrryyyrrrrrrrrrrrr" name="phase 3 - kuf - yellow"/>
+        <phase duration="4"  state="rrrrrrrrrrrrrrrrrrrrrrr" name="phase 3 - kuf - red"/>
+        <phase duration="26" state="ggggggggrrrrrrrrrrrrrrr" name="phase 4 - kuf - green"/>
+        <phase duration="3"  state="yyyyyyyyrrrrrrrrrrrrrrr" name="phase 4 - kuf - yellow"/>
+        <phase duration="4"  state="rrrrrrrrrrrrrrrrrrrrrrr" name="phase 4 - kuf - red"/>
     </tlLogic>
 
     <junction id="ateneo-lower" type="dead_end" x="437.65" y="611.23" incLanes="" intLanes="" shape="437.65,611.23 439.58,613.78"/>
