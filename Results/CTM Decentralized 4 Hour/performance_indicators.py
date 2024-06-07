@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as ET
 
 # Load and parse the XML file
-tree = ET.parse('tripinfo_out.xml')
+tree = ET.parse('tripinfo.xml')
 root = tree.getroot()
 
 tree2 = ET.parse('summary_out.xml')

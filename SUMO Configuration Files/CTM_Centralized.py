@@ -175,6 +175,7 @@ def getLaneParams():
 def run():
     step = 0
     ctr = 0
+    min = 0
     while traci.simulation.getMinExpectedNumber() > 0:
         traci.simulationStep()  # move one second in simulation
         if (step % 5 == 0):
@@ -208,7 +209,6 @@ def run():
                 evaluate_delay(phases)
                 phase1delay += phases.delay
                 
-
             for phases in Phase_2:
                 evaluate_delay(phases)
                 phase2delay += phases.delay
@@ -246,17 +246,26 @@ def run():
                 
             if next_phase == 12:
                 next_phase = 0
-
-            if phase_x<phase_y and current_phase in [0,3,6,9]:
+                
+            if min < 3 and phase_x != 0:
+                min += 1
+            elif phase_x == 0:
                 traci.trafficlight.setPhase("kuf", next_phase)
                 traci.trafficlight.setPhase("kbt", next_phase)
-            elif current_phase in [0,3,6,9] and time_remaining <= 5 and ctr % 4 != 0:
-                traci.trafficlight.setPhaseDuration ("kuf", 10)
-                traci.trafficlight.setPhaseDuration ("kbt", 10)
-                ctr += 1
-            elif ctr % 4 == 0 and ctr != 0:
-                traci.trafficlight.setPhase("kuf", next_phase)
-                traci.trafficlight.setPhase("kbt", next_phase)
+                min = 0
+            else:
+                if phase_x<phase_y and current_phase in [0,3,6,9]:
+                    traci.trafficlight.setPhase("kuf", next_phase)
+                    traci.trafficlight.setPhase("kbt", next_phase)
+                    min = 0
+                elif current_phase in [0,3,6,9] and time_remaining <= 5 and ctr % 4 != 0:
+                    traci.trafficlight.setPhaseDuration ("kuf", 10)
+                    traci.trafficlight.setPhaseDuration ("kbt", 10)
+                    ctr += 1
+                elif ctr % 4 == 0 and ctr != 0:
+                    traci.trafficlight.setPhase("kuf", next_phase)
+                    traci.trafficlight.setPhase("kbt", next_phase)
+                    min = 0
         step += 1
 
 
