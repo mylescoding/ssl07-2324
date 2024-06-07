@@ -83,7 +83,7 @@ for x in range(17):
     list_hours.append(((6 + 0.25*x), (6 + 0.25*(x+1))) )
     
     # Generate everything from 0-40 minutes.
-print(list_seconds)
+#print(list_seconds)
 print(list_hours)
 
 
@@ -166,5 +166,5 @@ print(len(flow_rates) + len(list_hours))
 
 
 
-print(extract_tripinfo_15min_qt(0,14400))
-print(sum(queue_times)/len(queue_times))
+#print(extract_tripinfo_15min_qt(0,14400))
+#print(sum(queue_times)/len(queue_times))
