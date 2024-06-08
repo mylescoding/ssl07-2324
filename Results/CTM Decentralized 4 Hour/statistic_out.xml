@@ -28,3 +28,14 @@
 -->
 
 <statistics xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/statistic_file.xsd">
+    <performance clockBegin="1717836979.17" clockEnd="1717850728.13" clockDuration="13748.96" traciDuration="115.17" realTimeFactor="1.06" vehicleUpdatesPerSecond="499.53" personUpdatesPerSecond="0.00" begin="0.00" end="14527.00" duration="14527.00"/>
+    <vehicles loaded="44308" inserted="44308" running="0" waiting="0"/>
+    <teleports total="16" jam="0" yield="0" wrongLane="0"/>
+    <safety collisions="16" emergencyStops="0" emergencyBraking="5"/>
+    <persons loaded="0" running="0" jammed="0"/>
+    <personTeleports total="0" abortWait="0" wrongDest="0"/>
+    <vehicleTripStatistics count="44308" routeLength="880.05" speed="7.35" duration="155.01" waitingTime="72.38" timeLoss="99.14" departDelay="0.50" departDelayWaiting="-1.00" totalTravelTime="6868041.00" totalDepartDelay="22164.76"/>
+    <pedestrianStatistics number="0" routeLength="0.00" duration="0.00" timeLoss="0.00"/>
+    <rideStatistics number="0"/>
+    <transportStatistics number="0"/>
+</statistics>

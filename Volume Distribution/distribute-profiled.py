@@ -210,14 +210,16 @@ def sum_indices(dictionary):
 
 
 
-for idx in range(5,9):
+for idx in range(14):
    distribute(idx)
-   createXML_hourly_profiled(route_dict, idx)
+   swank = sum_indices(route_dict)
+   print(swank)
+
+
+   #createXML_hourly_profiled(route_dict, idx)
    #print(route_dict)
    #print(sum(route_dict.values()))
 
 #createXML_wholeday_profiled(route_dict)
 #print
-#swank = sum_indices(route_dict)
-#print(swank)
 

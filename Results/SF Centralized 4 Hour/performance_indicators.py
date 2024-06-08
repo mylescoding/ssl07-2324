@@ -144,23 +144,22 @@ print(queue_times)
     
 #print(len(queue_times) + len(list_hours))
 
-def extract_summary_15min_fr(start, end):
+def extract_tripinfo_15min_fr(start, end):
     values = []
-    for step in root2.findall('step'):
-        value = step.get('running')
-        depart_time = step.get('time')
-        if value is not None and float(depart_time) >= float(start) and float(depart_time) <= float(end):
-            values.append(float(value))
-        if value is not None:
-            timestep = step.get('time')
-            if float(timestep) == float(end):
-                return sum(values)/(900.0)
+    sum = 0
+    for tripinfo in root.findall('tripinfo'):
+        depart_time = tripinfo.get('depart')
+        arrival_time = tripinfo.get('arrival')
+        if arrival_time is not None and float(arrival_time) >= float(start) and float(arrival_time) <= float(end):
+            sum += 1
+    #print(sum)
+    return 3600.0*float(sum)/(900.0)
 
 flow_rates = []
 for element in list_seconds:
     start = element[0]
     end = element[1]
-    flow_rate = extract_summary_15min_fr(start,end)
+    flow_rate = extract_tripinfo_15min_fr(start,end)
     flow_rates.append(flow_rate)
 
 print(f"FLOW RATES  6-10AM - 15 MINUTE INTERVALS")
