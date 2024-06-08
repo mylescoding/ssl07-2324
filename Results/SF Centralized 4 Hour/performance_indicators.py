@@ -74,5 +74,102 @@ print(f"Cars serviced in 4 hours is:  " + str (cars_serviced))
 
 
 
+# We want to calculate the parameters every 15 minutes
+
+list_seconds = []
+list_hours = []
+for x in range(16):
+    list_seconds.append((str(x*15.00*60.00),str((x+1)*15.00*60.0)))
+    list_hours.append(((6 + 0.25*x), (6 + 0.25*(x+1))) )
+    
+    # Generate everything from 0-40 minutes.
+#print(list_seconds)
+print(list_hours)
 
 
+
+def extract_summary_15min_ql(start, end):
+    values = []
+    for step in root2.findall('step'):
+        value = step.get('halting')
+        depart_time = step.get('time')
+        if value is not None and float(depart_time) >= float(start):
+            #print(f"value is:" + str(value))
+            values.append(float(value))
+            #print(values)
+        if value is not None:
+            timestep = step.get('time')
+            if float(timestep) == float(end):
+                x = sum(values)
+                #print(x)
+                return x/900.0
+    #return sum(values)/14400
+
+queue_lengths = []
+for element in list_seconds:
+    start = element[0]
+    end = element[1]
+    queue_length = extract_summary_15min_ql(start,end)
+    if queue_length is not None:
+        queue_lengths.append(queue_length/24.0)
+print(f"QUEUE LENGTHS  6-10AM - 15 MINUTE INTERVALS")
+print(queue_lengths)    
+#print(len(queue_lengths) + len(list_hours))
+
+
+
+def extract_tripinfo_15min_qt(start, end):
+    values = []
+    for step in root.findall('tripinfo'):
+        value = step.get('waitingTime')
+        depart_time = step.get('depart')
+        if value is not None and float(depart_time) >= float(start)  and float(depart_time) <= float(end):
+            values.append(float(value))
+            #print(value)
+    #print(len(values))
+    queuetime= sum(values)/len(values)
+    #print("queue time is: " + str(queuetime))
+    return sum(values)/len(values)
+
+
+queue_times = []
+for element in list_seconds:
+    start = element[0]
+    end = element[1]
+    queue_time = extract_tripinfo_15min_qt(start,end)
+    queue_times.append(queue_time)
+
+print(f"QUEUE TIMES  6-10AM - 15 MINUTE INTERVALS")
+print(queue_times)
+    
+#print(len(queue_times) + len(list_hours))
+
+def extract_summary_15min_fr(start, end):
+    values = []
+    for step in root2.findall('step'):
+        value = step.get('running')
+        depart_time = step.get('time')
+        if value is not None and float(depart_time) >= float(start) and float(depart_time) <= float(end):
+            values.append(float(value))
+        if value is not None:
+            timestep = step.get('time')
+            if float(timestep) == float(end):
+                return sum(values)/(900.0)
+
+flow_rates = []
+for element in list_seconds:
+    start = element[0]
+    end = element[1]
+    flow_rate = extract_summary_15min_fr(start,end)
+    flow_rates.append(flow_rate)
+
+print(f"FLOW RATES  6-10AM - 15 MINUTE INTERVALS")
+print(flow_rates)    
+#print(len(flow_rates) + len(list_hours))
+
+
+
+
+
+#print(extract_tripinfo_15min_qt(0,14400))
+#print(sum(queue_times)/len(queue_times))
