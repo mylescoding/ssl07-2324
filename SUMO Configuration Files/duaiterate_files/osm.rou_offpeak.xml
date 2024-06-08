@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2024-03-12 14:57:10 by Eclipse SUMO netedit Version v1_19_0+0208-13a9e45677a
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <!-- Vehicles, persons and containers (sorted by depart) -->
+    <vType length="4.425" width="1.1"  id="phCar" minGap="0.4" speedFactor="normc(1,0.1,0.2,2)" vClass="passenger" sigma="0.4" color="0,255,0"/>
+    <vType length="1.5" width="0.5" id="phMotor" minGap="0.2" speedFactor="normc(1.00,0.00)" vClass="motorcycle" sigma="0.15" color="0,0,255"/>
+    
+    <route id="kbt-10_to_kuf-4" edges="thornton-drive-extension-outward thornton-drive-lower-out L2 L3 L4 L5 L6 univ-road-lower-in"/>
+    <route id="kbt-10_to_kuf-4a" edges="thornton-drive-extension-outward thornton-drive-lower-out L2 L3 L4 L5 L6 R6 R5 R4"/>
+    <route id="kbt-10_to_kuf-4a_to_kbt-2" edges="thornton-drive-extension-outward thornton-drive-lower-out L2 L3 L4 L5 L6 R6 R5 R4 R3 R2 R1"/>
+    <route id="kbt-10_to_kuf-4a_to_kbt-3" edges="thornton-drive-extension-outward thornton-drive-lower-out L2 L3 L4 L5 L6 R6 R5 R4 thornton-drive-in thornton-drive-extension-towards"/>
+    <route id="kbt-10_to_kuf-4b" edges="thornton-drive-extension-outward thornton-drive-lower-out L2 L3 L4 L5 L6 univ-road-upper-in"/>
+    <route id="kbt-10_to_kuf-5" edges="thornton-drive-extension-outward thornton-drive-lower-out L2 L3 L4 L5 L6 L7 L8 L9 L10 L11 L12"/>
+    <route id="kbt-12" edges="thornton-drive-extension-outward thornton-drive-upper-out R2 R1"/>
+    <route id="kbt-2" edges="R6 R5 R4 R3 R2 R1"/>
+    <route id="kbt-3" edges="R6 R5 R4 thornton-drive-in thornton-drive-extension-towards"/>
+    <route id="kbt-4" edges="L1 thornton-drive-in thornton-drive-extension-towards"/>
+    <route id="kbt-4a" edges="L1 R3 R2 R1"/>
+    <route id="kbt-5_to_kuf-4" edges="L1 L2 L3 L4 L5 L6 univ-road-lower-in"/>
+    <route id="kbt-5_to_kuf-4a" edges="L1 L2 L3 L4 L5 L6 R6 R5 R4"/>
+    <route id="kbt-5_to_kuf-4a_to_kbt-2" edges="L1 L2 L3 L4 L5 L6 R6 R5 R4 R3 R2 R1"/>
+    <route id="kbt-5_to_kuf-4a_to_kbt-3" edges="L1 L2 L3 L4 L5 L6 R6 R5 R4 thornton-drive-in thornton-drive-extension-towards"/>
+    <route id="kbt-5_to_kuf-4b" edges="L1 L2 L3 L4 L5 L6 univ-road-upper-in"/>
+    <route id="kbt-5_to_kuf-5" edges="L1 L2 L3 L4 L5 L6 L7 L8 L9 L10 L11 L12"/>
+    <route id="kbt-7" edges="b.gonzales-road R3 R2 R1"/>
+    <route id="kbt-8" edges="b.gonzales-road thornton-drive-in thornton-drive-extension-towards"/>
+    <route id="kbt-9_to_kuf-4" edges="b.gonzales-road L2 L3 L4 L5 L6 univ-road-lower-in"/>
+    <route id="kbt-9_to_kuf-4a" edges="b.gonzales-road L2 L3 L4 L5 L6 R6 R5 R4"/>
+    <route id="kbt-9_to_kuf-4a_to_kbt-2" edges="b.gonzales-road L2 L3 L4 L5 L6 R6 R5 R4 R3 R2 R1"/>
+    <route id="kbt-9_to_kuf-4a_to_kbt-3" edges="b.gonzales-road L2 L3 L4 L5 L6 R6 R5 R4 thornton-drive-in thornton-drive-extension-towards"/>
+    <route id="kbt-9_to_kuf-4b" edges="b.gonzales-road L2 L3 L4 L5 L6 univ-road-upper-in"/>
+    <route id="kbt-9_to_kuf-5" edges="b.gonzales-road L2 L3 L4 L5 L6 L7 L8 L9 L10 L11 L12"/>
+    <route id="kuf-10b" edges="univ-road-lower-out L7 L8 L9 L10 L11 L12"/>
+    <route id="kuf-10c" edges="univ-road-upper-out L7 L8 L9 L10 L11 L12"/>
+    <route id="kuf-12a-zerovehiclessiya_to_kbt-2" edges="univ-road-upper-out R6 R5 R4 R3 R2 R1"/>
+    <route id="kuf-12a-zerovehiclessiya_to_kbt-3" edges="univ-road-upper-out R6 R5 R4 thornton-drive-in thornton-drive-extension-towards"/>
+    <route id="kuf-2_to_kbt-2" edges="R7 R6 R5 R4 R3 R2 R1"/>
+    <route id="kuf-2_to_kbt-3" edges="R7 R6 R5 R4 thornton-drive-in thornton-drive-extension-towards"/>
+    <route id="kuf-3" edges="R7 univ-road-lower-in"/>
+    <route id="kuf-3a" edges="R7 univ-road-upper-in"/>
+    <route id="kuf-4" edges="L6 univ-road-lower-in"/>
+    <route id="kuf-4b" edges="L6 univ-road-upper-in"/>
+    <route id="kuf-5" edges="L6 L7 L8 L9 L10 L11 L12"/>
+    <route id="kuf-7_to_kbt-2" edges=" f.dela-rosa-road R6 R5 R4 R3 R2 R1"/>
+    <route id="kuf-7_to_kbt-3" edges=" f.dela-rosa-road R6 R5 R4 thornton-drive-in thornton-drive-extension-towards"/>
+    <route id="kuf-8" edges=" f.dela-rosa-road univ-road-lower-in"/>
+    <route id="kuf-8a" edges=" f.dela-rosa-road univ-road-upper-in"/>
+    <route id="kuf-9" edges=" f.dela-rosa-road L7 L8 L9 L10 L11 L12"/>
+
+    <flow id ="f_0" type = "phMotor" begin="0.00" route="kbt-4" end="3600.00" number="22" departLane="free" departSpeed="max"/>
+    <flow id ="f_1" type = "phCar" begin="0.00" route="kbt-4" end="3600.00" number="14" departLane="free" departSpeed="max"/>
+    <flow id ="f_2" type = "phMotor" begin="0.00" route="kbt-4a" end="3600.00" number="200" departLane="free" departSpeed="max"/>
+    <flow id ="f_3" type = "phCar" begin="0.00" route="kbt-4a" end="3600.00" number="134" departLane="free" departSpeed="max"/>
+    <flow id ="f_4" type = "phMotor" begin="0.00" route="kbt-5_to_kuf-4" end="3600.00" number="62" departLane="free" departSpeed="max"/>
+    <flow id ="f_5" type = "phCar" begin="0.00" route="kbt-5_to_kuf-4" end="3600.00" number="41" departLane="free" departSpeed="max"/>
+    <flow id ="f_6" type = "phMotor" begin="0.00" route="kbt-5_to_kuf-4a_to_kbt-2" end="3600.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_7" type = "phCar" begin="0.00" route="kbt-5_to_kuf-4a_to_kbt-2" end="3600.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_8" type = "phMotor" begin="0.00" route="kbt-5_to_kuf-4a_to_kbt-3" end="3600.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_9" type = "phMotor" begin="0.00" route="kbt-5_to_kuf-4b" end="3600.00" number="52" departLane="free" departSpeed="max"/>
+    <flow id ="f_10" type = "phCar" begin="0.00" route="kbt-5_to_kuf-4b" end="3600.00" number="35" departLane="free" departSpeed="max"/>
+    <flow id ="f_11" type = "phMotor" begin="0.00" route="kbt-5_to_kuf-5" end="3600.00" number="1711" departLane="free" departSpeed="max"/>
+    <flow id ="f_12" type = "phCar" begin="0.00" route="kbt-5_to_kuf-5" end="3600.00" number="1141" departLane="free" departSpeed="max"/>
+    <flow id ="f_13" type = "phMotor" begin="0.00" route="kbt-7" end="3600.00" number="302" departLane="free" departSpeed="max"/>
+    <flow id ="f_14" type = "phCar" begin="0.00" route="kbt-7" end="3600.00" number="202" departLane="free" departSpeed="max"/>
+    <flow id ="f_15" type = "phMotor" begin="0.00" route="kbt-8" end="3600.00" number="7" departLane="free" departSpeed="max"/>
+    <flow id ="f_16" type = "phCar" begin="0.00" route="kbt-8" end="3600.00" number="4" departLane="free" departSpeed="max"/>
+    <flow id ="f_17" type = "phMotor" begin="0.00" route="kbt-9_to_kuf-4" end="3600.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_18" type = "phMotor" begin="0.00" route="kbt-9_to_kuf-4b" end="3600.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_19" type = "phMotor" begin="0.00" route="kbt-9_to_kuf-5" end="3600.00" number="10" departLane="free" departSpeed="max"/>
+    <flow id ="f_20" type = "phCar" begin="0.00" route="kbt-9_to_kuf-5" end="3600.00" number="7" departLane="free" departSpeed="max"/>
+    <flow id ="f_21" type = "phMotor" begin="0.00" route="kbt-10_to_kuf-4" end="3600.00" number="2" departLane="free" departSpeed="max"/>
+    <flow id ="f_22" type = "phCar" begin="0.00" route="kbt-10_to_kuf-4" end="3600.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_23" type = "phMotor" begin="0.00" route="kbt-10_to_kuf-4b" end="3600.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_24" type = "phCar" begin="0.00" route="kbt-10_to_kuf-4b" end="3600.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_25" type = "phMotor" begin="0.00" route="kbt-10_to_kuf-5" end="3600.00" number="43" departLane="free" departSpeed="max"/>
+    <flow id ="f_26" type = "phCar" begin="0.00" route="kbt-10_to_kuf-5" end="3600.00" number="28" departLane="free" departSpeed="max"/>
+    <flow id ="f_27" type = "phMotor" begin="0.00" route="kbt-12" end="3600.00" number="5" departLane="free" departSpeed="max"/>
+    <flow id ="f_28" type = "phCar" begin="0.00" route="kbt-12" end="3600.00" number="3" departLane="free" departSpeed="max"/>
+    <flow id ="f_29" type = "phMotor" begin="0.00" route="kuf-2_to_kbt-2" end="3600.00" number="1771" departLane="free" departSpeed="max"/>
+    <flow id ="f_30" type = "phCar" begin="0.00" route="kuf-2_to_kbt-2" end="3600.00" number="1181" departLane="free" departSpeed="max"/>
+    <flow id ="f_31" type = "phMotor" begin="0.00" route="kuf-2_to_kbt-3" end="3600.00" number="17" departLane="free" departSpeed="max"/>
+    <flow id ="f_32" type = "phCar" begin="0.00" route="kuf-2_to_kbt-3" end="3600.00" number="11" departLane="free" departSpeed="max"/>
+    <flow id ="f_33" type = "phMotor" begin="0.00" route="kuf-3" end="3600.00" number="115" departLane="free" departSpeed="max"/>
+    <flow id ="f_34" type = "phCar" begin="0.00" route="kuf-3" end="3600.00" number="77" departLane="free" departSpeed="max"/>
+    <flow id ="f_35" type = "phMotor" begin="0.00" route="kuf-3a" end="3600.00" number="13" departLane="free" departSpeed="max"/>
+    <flow id ="f_36" type = "phCar" begin="0.00" route="kuf-3a" end="3600.00" number="8" departLane="free" departSpeed="max"/>
+    <flow id ="f_37" type = "phMotor" begin="0.00" route="kuf-7_to_kbt-2" end="3600.00" number="73" departLane="free" departSpeed="max"/>
+    <flow id ="f_38" type = "phCar" begin="0.00" route="kuf-7_to_kbt-2" end="3600.00" number="48" departLane="free" departSpeed="max"/>
+    <flow id ="f_39" type = "phMotor" begin="0.00" route="kuf-7_to_kbt-3" end="3600.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_40" type = "phMotor" begin="0.00" route="kuf-8" end="3600.00" number="47" departLane="free" departSpeed="max"/>
+    <flow id ="f_41" type = "phCar" begin="0.00" route="kuf-8" end="3600.00" number="32" departLane="free" departSpeed="max"/>
+    <flow id ="f_42" type = "phMotor" begin="0.00" route="kuf-8a" end="3600.00" number="46" departLane="free" departSpeed="max"/>
+    <flow id ="f_43" type = "phCar" begin="0.00" route="kuf-8a" end="3600.00" number="31" departLane="free" departSpeed="max"/>
+    <flow id ="f_44" type = "phMotor" begin="0.00" route="kuf-9" end="3600.00" number="37" departLane="free" departSpeed="max"/>
+    <flow id ="f_45" type = "phCar" begin="0.00" route="kuf-9" end="3600.00" number="25" departLane="free" departSpeed="max"/>
+    <flow id ="f_46" type = "phMotor" begin="0.00" route="kuf-10b" end="3600.00" number="94" departLane="free" departSpeed="max"/>
+    <flow id ="f_47" type = "phCar" begin="0.00" route="kuf-10b" end="3600.00" number="62" departLane="free" departSpeed="max"/>
+    <flow id ="f_48" type = "phMotor" begin="0.00" route="kuf-10c" end="3600.00" number="238" departLane="free" departSpeed="max"/>
+    <flow id ="f_49" type = "phCar" begin="0.00" route="kuf-10c" end="3600.00" number="159" departLane="free" departSpeed="max"/>
+    <flow id ="f_50" type = "phMotor" begin="3600.00" route="kbt-4" end="7200.00" number="22" departLane="free" departSpeed="max"/>
+    <flow id ="f_51" type = "phCar" begin="3600.00" route="kbt-4" end="7200.00" number="14" departLane="free" departSpeed="max"/>
+    <flow id ="f_52" type = "phMotor" begin="3600.00" route="kbt-4a" end="7200.00" number="199" departLane="free" departSpeed="max"/>
+    <flow id ="f_53" type = "phCar" begin="3600.00" route="kbt-4a" end="7200.00" number="132" departLane="free" departSpeed="max"/>
+    <flow id ="f_54" type = "phMotor" begin="3600.00" route="kbt-5_to_kuf-4" end="7200.00" number="61" departLane="free" departSpeed="max"/>
+    <flow id ="f_55" type = "phCar" begin="3600.00" route="kbt-5_to_kuf-4" end="7200.00" number="41" departLane="free" departSpeed="max"/>
+    <flow id ="f_56" type = "phMotor" begin="3600.00" route="kbt-5_to_kuf-4a_to_kbt-3" end="7200.00" number="2" departLane="free" departSpeed="max"/>
+    <flow id ="f_57" type = "phCar" begin="3600.00" route="kbt-5_to_kuf-4a_to_kbt-3" end="7200.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_58" type = "phMotor" begin="3600.00" route="kbt-5_to_kuf-4b" end="7200.00" number="52" departLane="free" departSpeed="max"/>
+    <flow id ="f_59" type = "phCar" begin="3600.00" route="kbt-5_to_kuf-4b" end="7200.00" number="34" departLane="free" departSpeed="max"/>
+    <flow id ="f_60" type = "phMotor" begin="3600.00" route="kbt-5_to_kuf-5" end="7200.00" number="1694" departLane="free" departSpeed="max"/>
+    <flow id ="f_61" type = "phCar" begin="3600.00" route="kbt-5_to_kuf-5" end="7200.00" number="1129" departLane="free" departSpeed="max"/>
+    <flow id ="f_62" type = "phMotor" begin="3600.00" route="kbt-7" end="7200.00" number="299" departLane="free" departSpeed="max"/>
+    <flow id ="f_63" type = "phCar" begin="3600.00" route="kbt-7" end="7200.00" number="199" departLane="free" departSpeed="max"/>
+    <flow id ="f_64" type = "phMotor" begin="3600.00" route="kbt-8" end="7200.00" number="6" departLane="free" departSpeed="max"/>
+    <flow id ="f_65" type = "phCar" begin="3600.00" route="kbt-8" end="7200.00" number="4" departLane="free" departSpeed="max"/>
+    <flow id ="f_66" type = "phMotor" begin="3600.00" route="kbt-9_to_kuf-4" end="7200.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_67" type = "phMotor" begin="3600.00" route="kbt-9_to_kuf-4b" end="7200.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_68" type = "phMotor" begin="3600.00" route="kbt-9_to_kuf-5" end="7200.00" number="10" departLane="free" departSpeed="max"/>
+    <flow id ="f_69" type = "phCar" begin="3600.00" route="kbt-9_to_kuf-5" end="7200.00" number="7" departLane="free" departSpeed="max"/>
+    <flow id ="f_70" type = "phMotor" begin="3600.00" route="kbt-10_to_kuf-4" end="7200.00" number="2" departLane="free" departSpeed="max"/>
+    <flow id ="f_71" type = "phCar" begin="3600.00" route="kbt-10_to_kuf-4" end="7200.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_72" type = "phMotor" begin="3600.00" route="kbt-10_to_kuf-4b" end="7200.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_73" type = "phCar" begin="3600.00" route="kbt-10_to_kuf-4b" end="7200.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_74" type = "phMotor" begin="3600.00" route="kbt-10_to_kuf-5" end="7200.00" number="42" departLane="free" departSpeed="max"/>
+    <flow id ="f_75" type = "phCar" begin="3600.00" route="kbt-10_to_kuf-5" end="7200.00" number="28" departLane="free" departSpeed="max"/>
+    <flow id ="f_76" type = "phMotor" begin="3600.00" route="kbt-12" end="7200.00" number="5" departLane="free" departSpeed="max"/>
+    <flow id ="f_77" type = "phCar" begin="3600.00" route="kbt-12" end="7200.00" number="3" departLane="free" departSpeed="max"/>
+    <flow id ="f_78" type = "phMotor" begin="3600.00" route="kuf-2_to_kbt-2" end="7200.00" number="1753" departLane="free" departSpeed="max"/>
+    <flow id ="f_79" type = "phCar" begin="3600.00" route="kuf-2_to_kbt-2" end="7200.00" number="1168" departLane="free" departSpeed="max"/>
+    <flow id ="f_80" type = "phMotor" begin="3600.00" route="kuf-2_to_kbt-3" end="7200.00" number="17" departLane="free" departSpeed="max"/>
+    <flow id ="f_81" type = "phCar" begin="3600.00" route="kuf-2_to_kbt-3" end="7200.00" number="11" departLane="free" departSpeed="max"/>
+    <flow id ="f_82" type = "phMotor" begin="3600.00" route="kuf-3" end="7200.00" number="114" departLane="free" departSpeed="max"/>
+    <flow id ="f_83" type = "phCar" begin="3600.00" route="kuf-3" end="7200.00" number="76" departLane="free" departSpeed="max"/>
+    <flow id ="f_84" type = "phMotor" begin="3600.00" route="kuf-3a" end="7200.00" number="13" departLane="free" departSpeed="max"/>
+    <flow id ="f_85" type = "phCar" begin="3600.00" route="kuf-3a" end="7200.00" number="8" departLane="free" departSpeed="max"/>
+    <flow id ="f_86" type = "phMotor" begin="3600.00" route="kuf-7_to_kbt-2" end="7200.00" number="71" departLane="free" departSpeed="max"/>
+    <flow id ="f_87" type = "phCar" begin="3600.00" route="kuf-7_to_kbt-2" end="7200.00" number="48" departLane="free" departSpeed="max"/>
+    <flow id ="f_88" type = "phMotor" begin="3600.00" route="kuf-7_to_kbt-3" end="7200.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_89" type = "phMotor" begin="3600.00" route="kuf-8" end="7200.00" number="47" departLane="free" departSpeed="max"/>
+    <flow id ="f_90" type = "phCar" begin="3600.00" route="kuf-8" end="7200.00" number="31" departLane="free" departSpeed="max"/>
+    <flow id ="f_91" type = "phMotor" begin="3600.00" route="kuf-8a" end="7200.00" number="46" departLane="free" departSpeed="max"/>
+    <flow id ="f_92" type = "phCar" begin="3600.00" route="kuf-8a" end="7200.00" number="30" departLane="free" departSpeed="max"/>
+    <flow id ="f_93" type = "phMotor" begin="3600.00" route="kuf-9" end="7200.00" number="37" departLane="free" departSpeed="max"/>
+    <flow id ="f_94" type = "phCar" begin="3600.00" route="kuf-9" end="7200.00" number="24" departLane="free" departSpeed="max"/>
+    <flow id ="f_95" type = "phMotor" begin="3600.00" route="kuf-10b" end="7200.00" number="92" departLane="free" departSpeed="max"/>
+    <flow id ="f_96" type = "phCar" begin="3600.00" route="kuf-10b" end="7200.00" number="62" departLane="free" departSpeed="max"/>
+    <flow id ="f_97" type = "phMotor" begin="3600.00" route="kuf-10c" end="7200.00" number="236" departLane="free" departSpeed="max"/>
+    <flow id ="f_98" type = "phCar" begin="3600.00" route="kuf-10c" end="7200.00" number="157" departLane="free" departSpeed="max"/>
+    <flow id ="f_99" type = "phMotor" begin="7200.00" route="kbt-4" end="10800.00" number="28" departLane="free" departSpeed="max"/>
+    <flow id ="f_100" type = "phCar" begin="7200.00" route="kbt-4" end="10800.00" number="18" departLane="free" departSpeed="max"/>
+    <flow id ="f_101" type = "phMotor" begin="7200.00" route="kbt-4a" end="10800.00" number="253" departLane="free" departSpeed="max"/>
+    <flow id ="f_102" type = "phCar" begin="7200.00" route="kbt-4a" end="10800.00" number="168" departLane="free" departSpeed="max"/>
+    <flow id ="f_103" type = "phMotor" begin="7200.00" route="kbt-5_to_kuf-4" end="10800.00" number="77" departLane="free" departSpeed="max"/>
+    <flow id ="f_104" type = "phCar" begin="7200.00" route="kbt-5_to_kuf-4" end="10800.00" number="52" departLane="free" departSpeed="max"/>
+    <flow id ="f_105" type = "phMotor" begin="7200.00" route="kbt-5_to_kuf-4a_to_kbt-2" end="10800.00" number="2" departLane="free" departSpeed="max"/>
+    <flow id ="f_106" type = "phCar" begin="7200.00" route="kbt-5_to_kuf-4a_to_kbt-2" end="10800.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_107" type = "phMotor" begin="7200.00" route="kbt-5_to_kuf-4b" end="10800.00" number="66" departLane="free" departSpeed="max"/>
+    <flow id ="f_108" type = "phCar" begin="7200.00" route="kbt-5_to_kuf-4b" end="10800.00" number="44" departLane="free" departSpeed="max"/>
+    <flow id ="f_109" type = "phMotor" begin="7200.00" route="kbt-5_to_kuf-5" end="10800.00" number="2156" departLane="free" departSpeed="max"/>
+    <flow id ="f_110" type = "phCar" begin="7200.00" route="kbt-5_to_kuf-5" end="10800.00" number="1438" departLane="free" departSpeed="max"/>
+    <flow id ="f_111" type = "phMotor" begin="7200.00" route="kbt-7" end="10800.00" number="380" departLane="free" departSpeed="max"/>
+    <flow id ="f_112" type = "phCar" begin="7200.00" route="kbt-7" end="10800.00" number="254" departLane="free" departSpeed="max"/>
+    <flow id ="f_113" type = "phMotor" begin="7200.00" route="kbt-8" end="10800.00" number="8" departLane="free" departSpeed="max"/>
+    <flow id ="f_114" type = "phCar" begin="7200.00" route="kbt-8" end="10800.00" number="5" departLane="free" departSpeed="max"/>
+    <flow id ="f_115" type = "phMotor" begin="7200.00" route="kbt-9_to_kuf-4" end="10800.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_116" type = "phMotor" begin="7200.00" route="kbt-9_to_kuf-4b" end="10800.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_117" type = "phMotor" begin="7200.00" route="kbt-9_to_kuf-5" end="10800.00" number="13" departLane="free" departSpeed="max"/>
+    <flow id ="f_118" type = "phCar" begin="7200.00" route="kbt-9_to_kuf-5" end="10800.00" number="9" departLane="free" departSpeed="max"/>
+    <flow id ="f_119" type = "phMotor" begin="7200.00" route="kbt-10_to_kuf-4" end="10800.00" number="2" departLane="free" departSpeed="max"/>
+    <flow id ="f_120" type = "phCar" begin="7200.00" route="kbt-10_to_kuf-4" end="10800.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_121" type = "phMotor" begin="7200.00" route="kbt-10_to_kuf-4b" end="10800.00" number="2" departLane="free" departSpeed="max"/>
+    <flow id ="f_122" type = "phCar" begin="7200.00" route="kbt-10_to_kuf-4b" end="10800.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_123" type = "phMotor" begin="7200.00" route="kbt-10_to_kuf-5" end="10800.00" number="54" departLane="free" departSpeed="max"/>
+    <flow id ="f_124" type = "phCar" begin="7200.00" route="kbt-10_to_kuf-5" end="10800.00" number="36" departLane="free" departSpeed="max"/>
+    <flow id ="f_125" type = "phMotor" begin="7200.00" route="kbt-12" end="10800.00" number="6" departLane="free" departSpeed="max"/>
+    <flow id ="f_126" type = "phCar" begin="7200.00" route="kbt-12" end="10800.00" number="4" departLane="free" departSpeed="max"/>
+    <flow id ="f_127" type = "phMotor" begin="7200.00" route="kuf-2_to_kbt-2" end="10800.00" number="2231" departLane="free" departSpeed="max"/>
+    <flow id ="f_128" type = "phCar" begin="7200.00" route="kuf-2_to_kbt-2" end="10800.00" number="1487" departLane="free" departSpeed="max"/>
+    <flow id ="f_129" type = "phMotor" begin="7200.00" route="kuf-2_to_kbt-3" end="10800.00" number="22" departLane="free" departSpeed="max"/>
+    <flow id ="f_130" type = "phCar" begin="7200.00" route="kuf-2_to_kbt-3" end="10800.00" number="14" departLane="free" departSpeed="max"/>
+    <flow id ="f_131" type = "phMotor" begin="7200.00" route="kuf-3" end="10800.00" number="145" departLane="free" departSpeed="max"/>
+    <flow id ="f_132" type = "phCar" begin="7200.00" route="kuf-3" end="10800.00" number="97" departLane="free" departSpeed="max"/>
+    <flow id ="f_133" type = "phMotor" begin="7200.00" route="kuf-3a" end="10800.00" number="16" departLane="free" departSpeed="max"/>
+    <flow id ="f_134" type = "phCar" begin="7200.00" route="kuf-3a" end="10800.00" number="11" departLane="free" departSpeed="max"/>
+    <flow id ="f_135" type = "phMotor" begin="7200.00" route="kuf-7_to_kbt-2" end="10800.00" number="91" departLane="free" departSpeed="max"/>
+    <flow id ="f_136" type = "phCar" begin="7200.00" route="kuf-7_to_kbt-2" end="10800.00" number="61" departLane="free" departSpeed="max"/>
+    <flow id ="f_137" type = "phMotor" begin="7200.00" route="kuf-7_to_kbt-3" end="10800.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_138" type = "phMotor" begin="7200.00" route="kuf-8" end="10800.00" number="60" departLane="free" departSpeed="max"/>
+    <flow id ="f_139" type = "phCar" begin="7200.00" route="kuf-8" end="10800.00" number="40" departLane="free" departSpeed="max"/>
+    <flow id ="f_140" type = "phMotor" begin="7200.00" route="kuf-8a" end="10800.00" number="58" departLane="free" departSpeed="max"/>
+    <flow id ="f_141" type = "phCar" begin="7200.00" route="kuf-8a" end="10800.00" number="39" departLane="free" departSpeed="max"/>
+    <flow id ="f_142" type = "phMotor" begin="7200.00" route="kuf-9" end="10800.00" number="47" departLane="free" departSpeed="max"/>
+    <flow id ="f_143" type = "phCar" begin="7200.00" route="kuf-9" end="10800.00" number="31" departLane="free" departSpeed="max"/>
+    <flow id ="f_144" type = "phMotor" begin="7200.00" route="kuf-10b" end="10800.00" number="118" departLane="free" departSpeed="max"/>
+    <flow id ="f_145" type = "phCar" begin="7200.00" route="kuf-10b" end="10800.00" number="78" departLane="free" departSpeed="max"/>
+    <flow id ="f_146" type = "phMotor" begin="7200.00" route="kuf-10c" end="10800.00" number="300" departLane="free" departSpeed="max"/>
+    <flow id ="f_147" type = "phCar" begin="7200.00" route="kuf-10c" end="10800.00" number="200" departLane="free" departSpeed="max"/>
+    <flow id ="f_148" type = "phMotor" begin="10800.00" route="kbt-4" end="14400.00" number="26" departLane="free" departSpeed="max"/>
+    <flow id ="f_149" type = "phCar" begin="10800.00" route="kbt-4" end="14400.00" number="18" departLane="free" departSpeed="max"/>
+    <flow id ="f_150" type = "phMotor" begin="10800.00" route="kbt-4a" end="14400.00" number="244" departLane="free" departSpeed="max"/>
+    <flow id ="f_151" type = "phCar" begin="10800.00" route="kbt-4a" end="14400.00" number="163" departLane="free" departSpeed="max"/>
+    <flow id ="f_152" type = "phMotor" begin="10800.00" route="kbt-5_to_kuf-4" end="14400.00" number="75" departLane="free" departSpeed="max"/>
+    <flow id ="f_153" type = "phCar" begin="10800.00" route="kbt-5_to_kuf-4" end="14400.00" number="50" departLane="free" departSpeed="max"/>
+    <flow id ="f_154" type = "phMotor" begin="10800.00" route="kbt-5_to_kuf-4a_to_kbt-2" end="14400.00" number="2" departLane="free" departSpeed="max"/>
+    <flow id ="f_155" type = "phCar" begin="10800.00" route="kbt-5_to_kuf-4a_to_kbt-2" end="14400.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_156" type = "phMotor" begin="10800.00" route="kbt-5_to_kuf-4b" end="14400.00" number="64" departLane="free" departSpeed="max"/>
+    <flow id ="f_157" type = "phCar" begin="10800.00" route="kbt-5_to_kuf-4b" end="14400.00" number="43" departLane="free" departSpeed="max"/>
+    <flow id ="f_158" type = "phMotor" begin="10800.00" route="kbt-5_to_kuf-5" end="14400.00" number="2085" departLane="free" departSpeed="max"/>
+    <flow id ="f_159" type = "phCar" begin="10800.00" route="kbt-5_to_kuf-5" end="14400.00" number="1390" departLane="free" departSpeed="max"/>
+    <flow id ="f_160" type = "phMotor" begin="10800.00" route="kbt-7" end="14400.00" number="368" departLane="free" departSpeed="max"/>
+    <flow id ="f_161" type = "phCar" begin="10800.00" route="kbt-7" end="14400.00" number="245" departLane="free" departSpeed="max"/>
+    <flow id ="f_162" type = "phMotor" begin="10800.00" route="kbt-8" end="14400.00" number="8" departLane="free" departSpeed="max"/>
+    <flow id ="f_163" type = "phCar" begin="10800.00" route="kbt-8" end="14400.00" number="5" departLane="free" departSpeed="max"/>
+    <flow id ="f_164" type = "phMotor" begin="10800.00" route="kbt-9_to_kuf-4" end="14400.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_165" type = "phMotor" begin="10800.00" route="kbt-9_to_kuf-4b" end="14400.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_166" type = "phMotor" begin="10800.00" route="kbt-9_to_kuf-5" end="14400.00" number="13" departLane="free" departSpeed="max"/>
+    <flow id ="f_167" type = "phCar" begin="10800.00" route="kbt-9_to_kuf-5" end="14400.00" number="8" departLane="free" departSpeed="max"/>
+    <flow id ="f_168" type = "phMotor" begin="10800.00" route="kbt-10_to_kuf-4" end="14400.00" number="2" departLane="free" departSpeed="max"/>
+    <flow id ="f_169" type = "phCar" begin="10800.00" route="kbt-10_to_kuf-4" end="14400.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_170" type = "phMotor" begin="10800.00" route="kbt-10_to_kuf-4b" end="14400.00" number="2" departLane="free" departSpeed="max"/>
+    <flow id ="f_171" type = "phCar" begin="10800.00" route="kbt-10_to_kuf-4b" end="14400.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_172" type = "phMotor" begin="10800.00" route="kbt-10_to_kuf-5" end="14400.00" number="52" departLane="free" departSpeed="max"/>
+    <flow id ="f_173" type = "phCar" begin="10800.00" route="kbt-10_to_kuf-5" end="14400.00" number="35" departLane="free" departSpeed="max"/>
+    <flow id ="f_174" type = "phMotor" begin="10800.00" route="kbt-12" end="14400.00" number="6" departLane="free" departSpeed="max"/>
+    <flow id ="f_175" type = "phCar" begin="10800.00" route="kbt-12" end="14400.00" number="4" departLane="free" departSpeed="max"/>
+    <flow id ="f_176" type = "phMotor" begin="10800.00" route="kuf-2_to_kbt-2" end="14400.00" number="2158" departLane="free" departSpeed="max"/>
+    <flow id ="f_177" type = "phCar" begin="10800.00" route="kuf-2_to_kbt-2" end="14400.00" number="1439" departLane="free" departSpeed="max"/>
+    <flow id ="f_178" type = "phMotor" begin="10800.00" route="kuf-2_to_kbt-3" end="14400.00" number="20" departLane="free" departSpeed="max"/>
+    <flow id ="f_179" type = "phCar" begin="10800.00" route="kuf-2_to_kbt-3" end="14400.00" number="14" departLane="free" departSpeed="max"/>
+    <flow id ="f_180" type = "phMotor" begin="10800.00" route="kuf-3" end="14400.00" number="140" departLane="free" departSpeed="max"/>
+    <flow id ="f_181" type = "phCar" begin="10800.00" route="kuf-3" end="14400.00" number="94" departLane="free" departSpeed="max"/>
+    <flow id ="f_182" type = "phMotor" begin="10800.00" route="kuf-3a" end="14400.00" number="16" departLane="free" departSpeed="max"/>
+    <flow id ="f_183" type = "phCar" begin="10800.00" route="kuf-3a" end="14400.00" number="10" departLane="free" departSpeed="max"/>
+    <flow id ="f_184" type = "phMotor" begin="10800.00" route="kuf-7_to_kbt-2" end="14400.00" number="88" departLane="free" departSpeed="max"/>
+    <flow id ="f_185" type = "phCar" begin="10800.00" route="kuf-7_to_kbt-2" end="14400.00" number="59" departLane="free" departSpeed="max"/>
+    <flow id ="f_186" type = "phMotor" begin="10800.00" route="kuf-7_to_kbt-3" end="14400.00" number="1" departLane="free" departSpeed="max"/>
+    <flow id ="f_187" type = "phMotor" begin="10800.00" route="kuf-8" end="14400.00" number="58" departLane="free" departSpeed="max"/>
+    <flow id ="f_188" type = "phCar" begin="10800.00" route="kuf-8" end="14400.00" number="38" departLane="free" departSpeed="max"/>
+    <flow id ="f_189" type = "phMotor" begin="10800.00" route="kuf-8a" end="14400.00" number="56" departLane="free" departSpeed="max"/>
+    <flow id ="f_190" type = "phCar" begin="10800.00" route="kuf-8a" end="14400.00" number="38" departLane="free" departSpeed="max"/>
+    <flow id ="f_191" type = "phMotor" begin="10800.00" route="kuf-9" end="14400.00" number="46" departLane="free" departSpeed="max"/>
+    <flow id ="f_192" type = "phCar" begin="10800.00" route="kuf-9" end="14400.00" number="30" departLane="free" departSpeed="max"/>
+    <flow id ="f_193" type = "phMotor" begin="10800.00" route="kuf-10b" end="14400.00" number="114" departLane="free" departSpeed="max"/>
+    <flow id ="f_194" type = "phCar" begin="10800.00" route="kuf-10b" end="14400.00" number="76" departLane="free" departSpeed="max"/>
+    <flow id ="f_195" type = "phMotor" begin="10800.00" route="kuf-10c" end="14400.00" number="290" departLane="free" departSpeed="max"/>
+    <flow id ="f_196" type = "phCar" begin="10800.00" route="kuf-10c" end="14400.00" number="193" departLane="free" departSpeed="max"/>
+
+</routes>

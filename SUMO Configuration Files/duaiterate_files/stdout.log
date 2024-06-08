@@ -1,15 +1,15 @@
 > Executing step 0
->> Running router on osm.rou_3600.xml
->>> Begin time: 2024-06-08 13:22:30.188346
->>> End time: 2024-06-08 13:22:30.794449
->>> Duration: 0:00:00.606103
+>> Running router on osm.rou_offpeak.xml
+>>> Begin time: 2024-06-08 20:27:19.005357
+>>> End time: 2024-06-08 20:27:19.525297
+>>> Duration: 0:00:00.519940
 <<
 >> Running simulation
->>> Begin time: 2024-06-08 13:22:30.794531
->>> End time: 2024-06-08 13:24:59.029441
->>> Duration: 0:02:28.234910
+>>> Begin time: 2024-06-08 20:27:19.525388
+>>> End time: 2024-06-08 20:29:11.836282
+>>> Duration: 0:01:52.310894
 <<
-< Step 0 ended (duration: 0:02:28.843736)
+< Step 0 ended (duration: 0:01:52.833260)
 ------------------
 
-dua-iterate ended (duration: 0:02:28.844831)
+dua-iterate ended (duration: 0:01:52.834394)
