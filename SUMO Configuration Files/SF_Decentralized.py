@@ -739,7 +739,7 @@ if __name__ == "__main__":
 
     # traci starts sumo as a subprocess and then this script connects and runs
     traci.start([sumoBinary, "-c", "osm.sumocfg",
-                 "--tripinfo-output", "tripinfo.xml","--collision.action", "none"])
+                 "--tripinfo-output", "tripinfo.xml"])
     #getLaneParams()
     with warnings.catch_warnings():
         warnings.filterwarnings('ignore')
