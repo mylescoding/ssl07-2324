@@ -32,7 +32,7 @@ def check_and_increment(value):
         counters["count_50401_onwards"] += 1
 
 
-attribute_wt = 'arrival'
+attribute_wt = 'depart'
 average_wt = extract_tripinfo(attribute_wt)
 
 for key, count in counters.items():
