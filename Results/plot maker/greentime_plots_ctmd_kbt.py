@@ -23,7 +23,7 @@ plt.plot(time_intervals, phase1_times, marker='o', label='Phase 1', color = 'gre
 plt.plot(time_intervals, phase2_times, marker='s', label='Phase 2', color = 'yellow')
 plt.plot(time_intervals, phase3_times, marker='^', label='Phase 3', color = 'red')
 plt.plot(time_intervals, phase4_times, marker='d', label='Phase 4', color = 'blue')
-plt.title("CTM Decentralized - Phase Green Times from 6 AM to 10 AM (Katipunan-B. Gonzales-Thornton Drive intersection)")
+plt.title("SF Decentralized - Phase Green Times from 6 AM to 10 AM (Katipunan-B. Gonzales-Thornton Drive intersection)")
 plt.xlabel("Time")
 plt.ylabel("Green Time (s)")
 
@@ -36,7 +36,7 @@ plt.gca().xaxis.set_major_formatter(time_format)
 # Setting x-axis limits
 end_time = start_time + datetime.timedelta(hours=4)
 plt.xlim([start_time, end_time])
-#plt.ylim([15,150])
+plt.ylim([15,150])
 
 plt.grid(True)
 

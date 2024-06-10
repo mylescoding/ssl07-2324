@@ -2,30 +2,28 @@ Loading net-file from '000/../osm.net.xml' ... done (10ms).
 Loading additional-files from '000/../edgedata.add.xml' ... done (3ms).
 Loading done.
 Simulation version v1_19_0+0208-13a9e45677a started with time: 0.00.
-Warning: Teleporting vehicle 'f_11.90'; collision with vehicle 'f_11.92', lane='L1_2', gap=-1.48', latGap=-0.10, time=227.00 stage=move.
-Warning: Vehicle 'f_11.90' ends teleporting on edge 'L2', time=227.00.
-Warning: Vehicle 'f_30.797' performs emergency braking on lane ':katip-mid-right-junc-5to4_0_2' with decel=9.00, wished=4.50, severity=1.00, time=2575.00.
-Warning: Teleporting vehicle 'f_11.1528'; collision with vehicle 'f_11.1531', lane='L1_3', gap=-1.50', latGap=-0.15, time=3255.00 stage=move.
-Warning: Vehicle 'f_11.1528' ends teleporting on edge 'L2', time=3255.00.
-Warning: Vehicle 'f_71.0' performs emergency braking on lane ':katip-university-road-f.dela-rosa_5_0' with decel=9.00, wished=4.50, severity=1.00, time=3819.00.
-Warning: Teleporting vehicle 'f_112.84'; junction collision with vehicle 'f_112.86', lane=':katip-b.gonzales-thornton-drive-intersection_20_0', gap=-1.16', latGap=-1.10, time=8586.00 stage=move.
-Warning: Vehicle 'f_112.84' ends teleporting on edge 'R3', time=8586.00.
-Warning: Vehicle 'f_128.825' performs emergency braking on lane ':katip-mid-right-junc-5to4_0_2' with decel=9.00, wished=4.50, severity=1.00, time=9263.00.
-Warning: Teleporting vehicle 'f_128.1435'; collision with vehicle 'f_127.2160', lane='R7_0', gap=-1.37', latGap=-0.10, time=10769.00 stage=move.
-Warning: Vehicle 'f_128.1435' ends teleporting on edge 'R6', time=10772.00.
-Warning: Vehicle 'f_171.0' performs emergency braking on lane ':katip-b.gonzales-thornton-drive-intersection_10_0' with decel=9.00, wished=4.50, severity=1.00, time=10935.00.
-Warning: Vehicle 'f_177.1310' performs emergency braking on lane ':katip-mid-right-junc-5to4_0_2' with decel=9.00, wished=4.50, severity=1.00, time=14128.00.
-Warning: Vehicle 'f_177.1418' performs emergency braking on lane ':katip-mid-right-junc-5to4_0_2' with decel=9.00, wished=4.50, severity=1.00, time=14395.00.
-Simulation ended at time: 14625.00
+Warning: Vehicle 'f_14.113' performs emergency braking on lane ':katip-b.gonzales-thornton-drive-intersection_20_0' with decel=9.00, wished=4.50, severity=1.00, time=2190.00.
+Warning: Teleporting vehicle 'f_78.196'; collision with vehicle 'f_78.201', lane='R7_2', gap=-1.34', latGap=-0.00, time=4034.00 stage=move.
+Warning: Vehicle 'f_78.196' ends teleporting on edge 'R6', time=4034.00.
+Warning: Vehicle 'f_63.194' performs emergency braking on lane ':katip-b.gonzales-thornton-drive-intersection_20_0' with decel=9.00, wished=4.50, severity=1.00, time=7305.00.
+Warning: Teleporting vehicle 'f_158.1091'; collision with vehicle 'f_158.1095', lane='L1_2', gap=-1.70', latGap=-0.00, time=12721.00 stage=move.
+Warning: Vehicle 'f_158.1091' ends teleporting on edge 'L2', time=12721.00.
+Warning: Teleporting vehicle 'f_176.1153'; collision with vehicle 'f_176.1151', lane='R7_2', gap=-1.59', latGap=-0.00, time=12744.00 stage=move.
+Warning: Vehicle 'f_176.1153' ends teleporting on edge 'R6', time=12744.00.
+Warning: Teleporting vehicle 'f_176.1330'; collision with vehicle 'f_180.86', lane='R7_0', gap=-1.68', latGap=-0.05, time=13069.00 stage=move.
+Warning: Vehicle 'f_176.1330' ends teleporting on edge 'R6', time=13069.00.
+Warning: Teleporting vehicle 'f_159.1021'; junction collision with vehicle 'f_159.1037', lane=':katip-university-road-f.dela-rosa_0_2', gap=-1.90', latGap=-0.22, time=13593.00 stage=move.
+Warning: Vehicle 'f_159.1021' ends teleporting on edge 'L7', time=13593.00.
+Simulation ended at time: 15031.00
 Reason: All vehicles have left the simulation.
 Performance: 
- Duration: 112.19s
- Real time factor: 130.364
- UPS: 40312.436489
+ Duration: 111.95s
+ Real time factor: 134.262
+ UPS: 42806.740329
 Vehicles: 
  Inserted: 36270
  Running: 0
  Waiting: 0
- Teleports: 4 (Collisions: 4)
- Emergency Braking: 6
+ Teleports: 5 (Collisions: 5)
+ Emergency Braking: 2
 

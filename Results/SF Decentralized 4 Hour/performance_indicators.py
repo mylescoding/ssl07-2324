@@ -33,6 +33,32 @@ def extract_summary(attribute_name, flag = 0):
                 return sum(values)/14400
     return sum(values)/14400
 
+def extract_tripinfo_vfr():
+    sum = 0.0
+    depart_bottom = ['R7_', 'univ-road-lower-out_','univ-road-upper-out_', 'f.dela-rosa-road_']
+    arrive_bottom = ['L12_', 'univ-road-lower-in_', 'univ-road-upper-in_']
+    depart_top =['L1_','thornton-drive-extension-outward_','b.gonzales-road_']
+    arrive_top =['R1_','thornton-drive-extension-towards']
+    all_depart = ['R7_', 'univ-road-lower-out_','univ-road-upper-out_', 'f.dela-rosa-road_', 'L1_','thornton-drive-extension-outward_','b.gonzales-road_']
+    all_arrive = ['L12_', 'univ-road-lower-in_', 'univ-road-upper-in_', 'R1_','thornton-drive-extension-towards']
+    tot_car = 0.0
+    for tripinfo in root.findall('tripinfo'):
+        value = tripinfo.get('arrival')
+        if value is not None and float(value) <= 14440.0:
+            #sum = sum + 1
+            tot_car = tot_car + 1.0
+            car_departure= tripinfo.get('departLane')
+            car_departure = car_departure[:-1]
+            car_arrival= tripinfo.get('arrivalLane')
+            car_arrival=car_arrival[:-1]
+
+            if car_departure in depart_bottom and car_arrival in arrive_top:
+                sum = sum + 2.0
+            elif car_departure in depart_top and car_arrival in arrive_bottom:
+                sum = sum + 2.0
+            else:
+                sum = sum + 1.0
+    return float(3600*sum/14400.0)
 
 def serviced_4hr(attribute_name):
     for step in root2.findall('step'):
@@ -62,10 +88,10 @@ average_wt_4hr = extract_tripinfo(attribute_wt, 1)
 print(f"(4 HR) Average time in queue (s): " + str(average_wt_4hr))
 
 attribute_vfr = 'running'
-average_vfr_whole = extract_summary(attribute_vfr, 0)
+average_vfr_whole = extract_tripinfo_vfr()
 print(f"(WHOLE) Average vehicular flow rate (veh/hr): " + str (average_vfr_whole))
 
-average_vfr_4hr = extract_summary(attribute_vfr, 1)
+average_vfr_4hr = extract_tripinfo_vfr()
 print(f"(4 HR) Average vehicular flow rate (veh/hr): " + str (average_vfr_4hr))
 
 attribute_serviced = 'time'
@@ -144,23 +170,37 @@ print(queue_times)
     
 #print(len(queue_times) + len(list_hours))
 
-def extract_summary_15min_fr(start, end):
-    values = []
-    for step in root2.findall('step'):
-        value = step.get('running')
-        depart_time = step.get('time')
-        if value is not None and float(depart_time) >= float(start) and float(depart_time) <= float(end):
-            values.append(float(value))
-        if value is not None:
-            timestep = step.get('time')
-            if float(timestep) == float(end):
-                return sum(values)/(900.0)
+def extract_tripinfo_15min_fr(start,end):
+    sum = 0.0
+    depart_bottom = ['R7_', 'univ-road-lower-out_','univ-road-upper-out_', 'f.dela-rosa-road_']
+    arrive_bottom = ['L12_', 'univ-road-lower-in_', 'univ-road-upper-in_']
+    depart_top =['L1_','thornton-drive-extension-outward_','b.gonzales-road_']
+    arrive_top =['R1_','thornton-drive-extension-towards']
+
+    tot_car = 0.0
+    for tripinfo in root.findall('tripinfo'):
+        value = tripinfo.get('arrival')
+        if value is not None and float(value) >= float(start) and float(value) <= float(end):
+            #sum = sum + 1
+            tot_car = tot_car + 1.0
+            car_departure= tripinfo.get('departLane')
+            car_departure = car_departure[:-1]
+            car_arrival= tripinfo.get('arrivalLane')
+            car_arrival=car_arrival[:-1]
+
+            if car_departure in depart_bottom and car_arrival in arrive_top:
+                sum = sum + 2.0
+            elif car_departure in depart_top and car_arrival in arrive_bottom:
+                sum = sum + 2.0
+            else:
+                sum = sum + 1.0
+    return float(3600*sum/900.0)
 
 flow_rates = []
 for element in list_seconds:
     start = element[0]
     end = element[1]
-    flow_rate = extract_summary_15min_fr(start,end)
+    flow_rate = extract_tripinfo_15min_fr(start,end)
     flow_rates.append(flow_rate)
 
 print(f"FLOW RATES  6-10AM - 15 MINUTE INTERVALS")
